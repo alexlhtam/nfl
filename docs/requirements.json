@@ -1,0 +1,1046 @@
+{
+  "objective": "Implement every item in the 100-point improvement backlog",
+  "updated": "2026-10-09",
+  "scopeDecision": "No human reviewers now or in the future, explicitly directed by user. Requirements 94–95 are withdrawn as live participant studies; no fabricated results.",
+  "statusDefinitions": {
+    "implemented": "Feature is present with the listed implementation evidence; executed verification is identified separately by the cited checks.",
+    "verified": "Requirement-specific verification has been executed and its evidence is recorded.",
+    "implemented_pending_final_verification": "Implementation is present; the named final check has not yet passed.",
+    "withdrawn_by_user": "The user explicitly removed this item from active scope."
+  },
+  "requirements": [
+    {
+      "id": 1,
+      "requirement": "Coverage Lift main analytical card with signed units and interval",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:renderBoardMetrics (signed Coverage Lift card and elapsed interval)",
+        "tests/analytical_browser.cjs: displayed Engram values"
+      ]
+    },
+    {
+      "id": 2,
+      "requirement": "Complete signed decomposition and net change",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:renderBoardMetrics (coverage + receiver = net)",
+        "tests/analytical_browser.cjs: unrounded geometry comparison"
+      ]
+    },
+    {
+      "id": 3,
+      "requirement": "Ghost defender positions from the lookback",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:renderField (prior defender circles and movement connectors)"
+      ]
+    },
+    {
+      "id": 4,
+      "requirement": "Coverage Lift timeline",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:drawTimeline (signed coverage/receiver components on shared -8 to +8 yd axis)"
+      ]
+    },
+    {
+      "id": 5,
+      "requirement": "Verified Engram–Hill contrasting demonstration",
+      "status": "implemented",
+      "evidence": [
+        "data/stories.json and data/metric-validation.json (verified Engram and Hill claims)",
+        "tests/analytical_browser.cjs: contrasting signed components"
+      ]
+    },
+    {
+      "id": 6,
+      "requirement": "Opening-event detection with explicit duration rule",
+      "status": "implemented",
+      "evidence": [
+        "web/src/metrics.js:events",
+        "tests/test_coverage_lift.py: observed minimum-hold confirmation",
+        "web/src/app.js:renderEvents"
+      ]
+    },
+    {
+      "id": 7,
+      "requirement": "Downfield/backfield/in-bounds eligibility and uncertainty",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:metric controls and quality context",
+        "web/src/metrics.js:eligibility and windows",
+        "tests/analytical_browser.cjs: scope and observed-window behavior"
+      ]
+    },
+    {
+      "id": 8,
+      "requirement": "Visible negative Coverage Lift",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:signed cards and fixed signed chart",
+        "tests/analytical_browser.cjs: Hill negative defense component"
+      ]
+    },
+    {
+      "id": 9,
+      "requirement": "No double counting overlapping lookbacks",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:method dialog explicitly forbids summing overlapping lookbacks; summaries use time intervals, not summed rolling lift",
+        "docs/METRIC.md"
+      ]
+    },
+    {
+      "id": 10,
+      "requirement": "Visible metric parameters",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:scope/lookback/threshold/minimum-hold controls and diagnostic provenance header"
+      ]
+    },
+    {
+      "id": 11,
+      "requirement": "Inspectable four-distance calculation",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:renderFourDistances",
+        "tests/analytical_browser.cjs: all four displayed distances checked"
+      ]
+    },
+    {
+      "id": 12,
+      "requirement": "Contextual summaries without unsupported ability rankings",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:contextual per-play summaries and comparison reasons; no player ability rankings"
+      ]
+    },
+    {
+      "id": 13,
+      "requirement": "All-receiver shared timeline",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:renderAllRoutes",
+        "tests/browser_features.cjs: receiver table and paired-route navigation"
+      ]
+    },
+    {
+      "id": 14,
+      "requirement": "Two receivers on one field",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:pairReceivers, paired field trails and pair timeline",
+        "tests/browser_features.cjs: paired-route navigation and same-play comparison"
+      ]
+    },
+    {
+      "id": 15,
+      "requirement": "Selectable defenders",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:focus player menu and field hit targets include defenders"
+      ]
+    },
+    {
+      "id": 16,
+      "requirement": "Nearest-defender name and distance",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:renderBoardMetrics nearest-context; table names and distances",
+        "tests/analytical_browser.cjs: nearest-distance scope measurements"
+      ]
+    },
+    {
+      "id": 17,
+      "requirement": "Nearest-defender identity changes",
+      "status": "verified",
+      "evidence": [
+        "web/src/app.js:drawTimeline switch ticks and nearest-context identity-change text",
+        "tests/analytical_browser.cjs: Bernard consecutive-observation badge and actual canvas tick regression"
+      ],
+      "assertions": [
+        "The badge and timeline mark consecutive-observation changes independently of the Coverage Lift lookback. Bernard changes nearest defender at 1.0 seconds, with no repeated change tick or badge at 1.1 seconds; the distinct lookback comparison remains true."
+      ]
+    },
+    {
+      "id": 18,
+      "requirement": "Second-nearest defender distance",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:renderBoardMetrics second-nearest named distance"
+      ]
+    },
+    {
+      "id": 19,
+      "requirement": "Local defender counts",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:nearest-context and point inspector counts within 3 and 5 yards"
+      ]
+    },
+    {
+      "id": 20,
+      "requirement": "Pinned region opening and arrival history",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:regionAnalysis, pinned rectangle, area/time table and true arrivals",
+        "tests/test_coverage_lift.py: regional geometry and arrival separation"
+      ]
+    },
+    {
+      "id": 21,
+      "requirement": "Opening-to-arrival timing",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:regionAnalysis openingToArrival and fixed-arrival-location wording",
+        "web/src/metrics.js:regionSeries",
+        "tests/test_coverage_lift.py: regional arrivals"
+      ]
+    },
+    {
+      "id": 22,
+      "requirement": "Association-only route-assist candidates",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:assistAnalysis (association-only candidates, evidence and paired review)",
+        "web/src/metrics.js:assistCandidates"
+      ]
+    },
+    {
+      "id": 23,
+      "requirement": "Coach-supplied route and assignment annotations",
+      "status": "implemented",
+      "evidence": [
+        "web/src/workspace.js:coach labels and field annotations",
+        "tests/workspace_browser.cjs: explicitly coach-supplied labels"
+      ]
+    },
+    {
+      "id": 24,
+      "requirement": "Consistent individual-defender contribution allocation",
+      "status": "implemented",
+      "evidence": [
+        "web/src/metrics.js:defenderContributions (interaction-sharing allocation)",
+        "web/src/app.js:contributionAnalysis (signed values, total and residual)",
+        "data/metric-validation.json"
+      ]
+    },
+    {
+      "id": 25,
+      "requirement": "Navigation to metric and opening events",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:jumpWindow, event navigation, peak-lift and endpoint actions"
+      ]
+    },
+    {
+      "id": 26,
+      "requirement": "Selected-interval looping",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:loop controls, event loops and tick interval handling"
+      ]
+    },
+    {
+      "id": 27,
+      "requirement": "Observed full route up to current frame",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:renderField full observed-so-far trails; blind caps whole-route trails at current frame"
+      ]
+    },
+    {
+      "id": 28,
+      "requirement": "Snap/release/downfield/manual comparison alignment",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:anchor/offset/manualAnchors and alignment controls",
+        "tests/browser_features.cjs: manual and first-downfield alignment",
+        "tests/analytical_browser.cjs: observed endpoint alignment"
+      ]
+    },
+    {
+      "id": 29,
+      "requirement": "Comparable-play retrieval and match explanations",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:renderMatches (full candidate cohort, shared context and differences)",
+        "web/src/metrics.js:compareMatches"
+      ]
+    },
+    {
+      "id": 30,
+      "requirement": "Portable exact analysis state",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:getSnapshot/setSnapshot validation and pre-snap exact state",
+        "web/src/workspace.js:portable workspace and bookmark links",
+        "tests/workspace_browser.cjs: exact moment reopen",
+        "tests/browser_features.cjs: pre-snap restore and atomic rejection"
+      ]
+    },
+    {
+      "id": 31,
+      "requirement": "Timestamped notes linked to receiver",
+      "status": "implemented",
+      "evidence": [
+        "web/src/workspace.js:timestamped notes tied to play and receiver",
+        "tests/workspace_browser.cjs: timestamped observations"
+      ]
+    },
+    {
+      "id": 32,
+      "requirement": "Notes for both comparison plays",
+      "status": "implemented",
+      "evidence": [
+        "web/src/workspace.js:explicit note-board selector",
+        "tests/workspace_browser.cjs: separate notes for comparison plays"
+      ]
+    },
+    {
+      "id": 33,
+      "requirement": "Drawing and annotation tools",
+      "status": "implemented",
+      "evidence": [
+        "web/src/workspace.js:field-coordinate drawings and undo",
+        "tests/workspace_browser.cjs: annotation drawing"
+      ]
+    },
+    {
+      "id": 34,
+      "requirement": "Reusable playlists",
+      "status": "implemented",
+      "evidence": [
+        "web/src/workspace.js:playlists",
+        "tests/workspace_browser.cjs: playlist navigation"
+      ]
+    },
+    {
+      "id": 35,
+      "requirement": "Saved filter combinations",
+      "status": "implemented",
+      "evidence": [
+        "web/src/workspace.js:saved filter presets",
+        "tests/workspace_browser.cjs: reusable filters"
+      ]
+    },
+    {
+      "id": 36,
+      "requirement": "Metric table export",
+      "status": "implemented",
+      "evidence": [
+        "web/src/workspace.js:full-precision selectedRows CSV export",
+        "tests/workspace_browser.cjs: CSV export",
+        "tests/analytical_browser.cjs: actual metric values in exported rows"
+      ]
+    },
+    {
+      "id": 37,
+      "requirement": "Annotated findings export",
+      "status": "implemented",
+      "evidence": [
+        "web/src/workspace.js:native PNG and HTML findings",
+        "web/src/app.js:renderField export legends/time/history context",
+        "tests/workspace_browser.cjs: annotated finding exports"
+      ]
+    },
+    {
+      "id": 38,
+      "requirement": "Replay clip export",
+      "status": "implemented",
+      "evidence": [
+        "web/src/workspace.js:recordClip",
+        "tests/workspace_browser.cjs: encoded and decoded native-resolution replay with state restoration"
+      ]
+    },
+    {
+      "id": 39,
+      "requirement": "Relevant automatic receiver selection",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:defaultReceiver (eligible window in review; snap-position choice in blind practice)",
+        "tests/analytical_browser.cjs: unseen-future invariance"
+      ]
+    },
+    {
+      "id": 40,
+      "requirement": "Nullified-play identification",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:nullified badges and penalty filters",
+        "data/demo.json:penalty.nullified and source metadata"
+      ]
+    },
+    {
+      "id": 41,
+      "requirement": "Structured penalty context",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:renderPlayerContext structured fouls and penalty yards"
+      ]
+    },
+    {
+      "id": 42,
+      "requirement": "Field-boundary ambiguity flags",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:quality-context boundary ambiguity counts and in-bounds-scope wording",
+        "data/demo.json:quality.fieldAmbiguity"
+      ]
+    },
+    {
+      "id": 43,
+      "requirement": "Release-censored window labels",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:window-scope and renderEvents censoring labels",
+        "web/src/metrics.js:window boundary censoring"
+      ]
+    },
+    {
+      "id": 44,
+      "requirement": "Elapsed versus whole-play totals",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:statsMode and statsThrough",
+        "tests/analytical_browser.cjs: observed-so-far totals and shading"
+      ]
+    },
+    {
+      "id": 45,
+      "requirement": "Consistent full-precision threshold classification",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:all analysis uses OFMetrics on full-precision tracks",
+        "tests/analytical_browser.cjs: browser/native full-precision parity",
+        "tests/test_coverage_lift.py: exact threshold classification"
+      ]
+    },
+    {
+      "id": 46,
+      "requirement": "Per-play note fallback when storage fails",
+      "status": "implemented",
+      "evidence": [
+        "web/src/workspace.js:in-memory persistence fallback and portable export",
+        "tests/workspace_browser.cjs: unavailable storage without cross-play leakage"
+      ]
+    },
+    {
+      "id": 47,
+      "requirement": "Filtered-out active-play indication",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:hiddenSelection warning and filter reset",
+        "tests/browser_features.cjs: filtered active play and empty state"
+      ]
+    },
+    {
+      "id": 48,
+      "requirement": "Remembered receiver selection",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:remembered receiver map and chooseReceiver/defaultReceiver"
+      ]
+    },
+    {
+      "id": 49,
+      "requirement": "Intentional preservation/reset of comparison clock",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:selectPlay resets A; preserves B clock; receiver changes preserve clock",
+        "tests/browser_features.cjs: observed-frame stepping and preserved B time"
+      ]
+    },
+    {
+      "id": 50,
+      "requirement": "Explained automatic comparison selection",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:populateComparison comparisonReason shows matching/differing context and comparability limit"
+      ]
+    },
+    {
+      "id": 51,
+      "requirement": "Exact field-point inspection",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:updatePointInspector, numeric-coordinate pin and keyboard movement",
+        "tests/browser_features.cjs: pinned-point inspection and stale-result regression"
+      ]
+    },
+    {
+      "id": 52,
+      "requirement": "Player information cards",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:renderPlayerContext (name, jersey, role, position, speed, acceleration, displacement and protection)"
+      ]
+    },
+    {
+      "id": 53,
+      "requirement": "Composited legend matching heatmap",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:composited display and native-export gradient uses same colors, opacity and field background"
+      ]
+    },
+    {
+      "id": 54,
+      "requirement": "Intermediate legend ticks and zero midpoint",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:fixed heat ticks 0/2/4/6/8+ and -4/-2/0/+2/+4 with labeled units and signed center"
+      ]
+    },
+    {
+      "id": 55,
+      "requirement": "Independent field-layer controls",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:independent heat, ghosts, links, arrows, rushers, blockers, contours, trail and label controls"
+      ]
+    },
+    {
+      "id": 56,
+      "requirement": "Field enlargement and zoom",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:expandField and viewBounds zoom",
+        "tests/browser_features.cjs: reversible expansion and zoom"
+      ]
+    },
+    {
+      "id": 57,
+      "requirement": "Larger presentation labels",
+      "status": "implemented",
+      "evidence": [
+        "web/src/styles.css:large-text and responsive labels",
+        "web/src/app.js:large player markers and fonts",
+        "tests/browser_features.cjs: readability controls"
+      ]
+    },
+    {
+      "id": 58,
+      "requirement": "Non-colour role distinctions",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:offense circles, defense diamonds, dashed reference/connectors, signed numeric readouts"
+      ]
+    },
+    {
+      "id": 59,
+      "requirement": "Accessible tabular chart alternative",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:all-receiver current-value/window table and region time-series table",
+        "web/src/workspace.js:full-precision per-frame CSV alternative",
+        "tests/browser_features.cjs: accessible receiver table"
+      ]
+    },
+    {
+      "id": 60,
+      "requirement": "Keyboard/touch inspection and reduced motion",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:keyboard replay, field pin movement, touch pointer interaction, numeric coordinate entry and reduced-motion mode",
+        "tests/browser_features.cjs: keyboard inspection and 390px layout"
+      ]
+    },
+    {
+      "id": 61,
+      "requirement": "Separation change rate",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:nearest-context separationRate in yd/s and widening sign explanation",
+        "web/src/metrics.js:nearest"
+      ]
+    },
+    {
+      "id": 62,
+      "requirement": "Defender leverage relative to explicit reference",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:leverage explicitly relative to field center and receiver downfield position"
+      ]
+    },
+    {
+      "id": 63,
+      "requirement": "Coverage-only/all-defender scope and included count",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:roleScope and included defender count in display/export legends",
+        "tests/analytical_browser.cjs: coverage/all participant counts"
+      ]
+    },
+    {
+      "id": 64,
+      "requirement": "Time to first qualifying opening",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:timeToFirst in receiver context and all-route table; unknown/censored onset remains unavailable"
+      ]
+    },
+    {
+      "id": 65,
+      "requirement": "Eligible-time percentages with denominators",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:percentEligible accompanied by eligibleSeconds in receiver context/table"
+      ]
+    },
+    {
+      "id": 66,
+      "requirement": "Opening lead time before release",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:releaseLead explicitly labeled first observed opening to pass release; hidden in blind practice",
+        "web/src/metrics.js:windows"
+      ]
+    },
+    {
+      "id": 67,
+      "requirement": "Threshold sensitivity",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:sensitivityAnalysis (threshold, lookback and specified position perturbation)",
+        "web/src/metrics.js:sensitivity"
+      ]
+    },
+    {
+      "id": 68,
+      "requirement": "Explicit minimum window duration and raw observations",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:minDuration control; table distinguishes qualified windows and raw intervals",
+        "tests/test_coverage_lift.py: raw and qualified minimum hold",
+        "tests/analytical_browser.cjs: real window/shading changes"
+      ]
+    },
+    {
+      "id": 69,
+      "requirement": "Relevant-field-region masks",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:heatMask all/downfield/current-route-radius/selected-region; geometric mask does not change metric",
+        "tests/browser_features.cjs: selected mask behavior"
+      ]
+    },
+    {
+      "id": 70,
+      "requirement": "Exploratory passing-lane geometry",
+      "status": "implemented",
+      "evidence": [
+        "web/src/app.js:passingLane and field overlay; all-defender perpendicular geometry only with explicit exclusions",
+        "tests/browser_features.cjs: exploratory lane UI and limitations"
+      ]
+    },
+    {
+      "id": 71,
+      "requirement": "Selectable additional game packs",
+      "status": "verified",
+      "evidence": [
+        "tools/build_packs.py",
+        "data/catalog.json",
+        "data/packs/week-1-additional/demo.json",
+        "tests/test_pipeline.py"
+      ],
+      "assertions": [
+        "Catalog lists 122 source games without embedding all tracking; the separately validated additional pack has 152 plays from ATL/PHI and BUF/PIT. Pack/catalog tests passed."
+      ]
+    },
+    {
+      "id": 72,
+      "requirement": "Sample sizes for every cohort summary",
+      "status": "verified",
+      "evidence": [
+        "data_pipeline.py:cohort_counts",
+        "data/provenance.json",
+        "data/packs/week-1-additional/provenance.json",
+        "tools/audit_source.py"
+      ],
+      "assertions": [
+        "Independent source audits checked included, eligible, nullified, penalized, boundary and scouting counts with denominators overall and by game, offense and coverage for 321 included plays and four exclusions."
+      ]
+    },
+    {
+      "id": 73,
+      "requirement": "Personnel/play-action/dropback/score/protection metadata",
+      "status": "verified",
+      "evidence": [
+        "data_pipeline.py:play_context",
+        "data_pipeline.py:build_play",
+        "tests/test_pipeline.py",
+        "tools/audit_source.py"
+      ],
+      "assertions": [
+        "Personnel, play action, dropback, box count, scores and protection fields preserve missing values separately from false. All 321 context objects and 7383 player protection objects matched raw source CSVs."
+      ]
+    },
+    {
+      "id": 74,
+      "requirement": "Retained source acceleration",
+      "status": "verified",
+      "evidence": [
+        "data_pipeline.py:normalized_track_point",
+        "tools/audit_source.py:reference_point",
+        "tests/test_source_audit.py"
+      ],
+      "assertions": [
+        "Acceleration and displacement follow the original five track values at indices 5 and 6. Independent Decimal-based parity checked all 1962429 replay and pre-snap motion values."
+      ]
+    },
+    {
+      "id": 75,
+      "requirement": "Trajectory-quality flags",
+      "status": "verified",
+      "evidence": [
+        "data_pipeline.py:build_play",
+        "tests/test_pipeline.py",
+        "tools/audit_source.py:audit_play"
+      ],
+      "assertions": [
+        "Synthetic tests and independent raw recomputation passed for speed, position-jump and speed/displacement diagnostics. Coordinates remain unclamped; thresholds are explicitly heuristic rather than calibrated error bounds."
+      ]
+    },
+    {
+      "id": 76,
+      "requirement": "Scouting-role completeness audit",
+      "status": "verified",
+      "evidence": [
+        "data_pipeline.py:build_play",
+        "schema.py",
+        "tests/test_pipeline.py",
+        "tools/audit_source.py:audit_play"
+      ],
+      "assertions": [
+        "Per-player scouting availability, missing IDs, unknown roles and role counts are explicit. Missing-scouting fixtures and complete raw role parity passed."
+      ]
+    },
+    {
+      "id": 77,
+      "requirement": "Event timing agreement audit",
+      "status": "verified",
+      "evidence": [
+        "data_pipeline.py:event_for_frame",
+        "data_pipeline.py:build_play",
+        "tools/audit_source.py:audit_play"
+      ],
+      "assertions": [
+        "Frame diagnostics preserve contradictory event tags and missing-tag counts. Independent audit matched every exported event and agreement diagnostic, with explicit snap and first pass-forward cutoffs."
+      ]
+    },
+    {
+      "id": 78,
+      "requirement": "Exclusions and group coverage report",
+      "status": "verified",
+      "evidence": [
+        "data_pipeline.py:cohort_counts",
+        "data/provenance.json",
+        "data/packs/week-1-additional/provenance.json",
+        "tools/audit_source.py:audit_exclusion"
+      ],
+      "assertions": [
+        "All 325 selected source plays are accounted for: 321 included and four excluded with source-supported reasons. Overall and grouped exclusion denominators were independently checked; unsupported future exclusion reasons fail closed."
+      ]
+    },
+    {
+      "id": 79,
+      "requirement": "Pre-snap context",
+      "status": "verified",
+      "evidence": [
+        "data_pipeline.py:build_play",
+        "schema.py",
+        "tests/test_source_audit.py",
+        "web/src/app.js:renderPlayerContext"
+      ],
+      "assertions": [
+        "Separate preSnap arrays retain 2023 observed frames without shifting post-snap indices. All 46529 pre-snap player/ball observations matched raw CSVs."
+      ]
+    },
+    {
+      "id": 80,
+      "requirement": "Validated optional target/outcome joins",
+      "status": "verified",
+      "evidence": [
+        "tools/join_context.py",
+        "tests/test_context_join.py",
+        "tests/test_app_integrity.py",
+        "tests/workspace_integrity.cjs",
+        "data/outcome-context.json",
+        "submission/qa/workspace-integrity-chromium.json"
+      ],
+      "assertions": [
+        "Join report has 321 matched plays, 252 mapped target IDs and no unresolved targets. Python integrity tests passed. The normalized-export browser regression passed exact known-file hash trust, removal of forged outcomes from edited bytes, dataset workspace isolation and exact-identity mismatch rejection, with zero JavaScript errors or external requests."
+      ]
+    },
+    {
+      "id": 81,
+      "requirement": "Full custom-dataset validation",
+      "status": "verified",
+      "evidence": [
+        "schema.py",
+        "web/src/schema.js",
+        "tests/test_schema.py",
+        "tests/test_browser_schema.py",
+        "tests/fixtures/schema_cases.json"
+      ],
+      "assertions": [
+        "Eight Python schema tests and three Python/browser parity tests passed. Validators enforce finite values, identities, roles, geometry, aligned timelines, metric consistency and known optional context; legacy five-value tracks remain accepted."
+      ]
+    },
+    {
+      "id": 82,
+      "requirement": "CSV column and primary-key validation",
+      "status": "verified",
+      "evidence": [
+        "data_pipeline.py:load_csv",
+        "tests/test_pipeline.py:test_csv_headers_rows_and_duplicate_keys",
+        "tools/audit_source.py:read_csv"
+      ],
+      "assertions": [
+        "Required and duplicate headers, malformed row widths, blank keys and duplicate primary keys are checked. Ingestion rejection fixtures and the independent raw CSV reader passed."
+      ]
+    },
+    {
+      "id": 83,
+      "requirement": "Revision-aware verified download cache",
+      "status": "verified",
+      "evidence": [
+        "data_pipeline.py:source_file",
+        "data/source-manifest.json",
+        "tests/test_pipeline.py"
+      ],
+      "assertions": [
+        "Revision-scoped cache files match existing immutable manifest hashes; corrupt files require refresh. Corruption, refresh and bounded-retry tests passed. Both regenerated source-audit reports pass and match final LF-normalized data, auditor and source-manifest hashes."
+      ]
+    },
+    {
+      "id": 84,
+      "requirement": "Accurate provenance for local overrides",
+      "status": "verified",
+      "evidence": [
+        "data_pipeline.py:verify_source",
+        "data_pipeline.py:build_dataset",
+        "tests/test_pipeline.py",
+        "tests/workspace_integrity.cjs",
+        "submission/qa/workspace-integrity-chromium.json"
+      ],
+      "assertions": [
+        "Modified local CSVs are marked unverified and cannot claim a pinned sourceRevision. Local-override tests passed; normalized-export browser checks prove unknown edited bytes lose pinned revision and external outcomes. Both current source-audit reports pass."
+      ]
+    },
+    {
+      "id": 85,
+      "requirement": "Atomic artifact writes and pairing checks",
+      "status": "verified",
+      "evidence": [
+        "data_pipeline.py:write_json_pair",
+        "app.py:load_data",
+        "app.py:atomic_write_text",
+        "tests/test_pipeline.py",
+        "tests/test_app_integrity.py"
+      ],
+      "assertions": [
+        "Staged/flushed writes roll back ordinary replacement failures; buildId and dataset SHA detect mismatched pairs. Two files are not claimed to be one crash-atomic operation. Pairing/export regressions passed and both normalized data/provenance pairs pass current independent audits."
+      ]
+    },
+    {
+      "id": 86,
+      "requirement": "Bounded retries and download progress",
+      "status": "verified",
+      "evidence": [
+        "data_pipeline.py:source_file",
+        "tools/build_packs.py",
+        "tests/test_pipeline.py"
+      ],
+      "assertions": [
+        "Downloads have bounded retries, a timeout, size limit, progress callbacks and temporary-file cleanup; only selected games download. Transient failure, retry bound and refresh tests passed."
+      ]
+    },
+    {
+      "id": 87,
+      "requirement": "Maintainable modular frontend with single-file export",
+      "status": "verified",
+      "evidence": [
+        "web/index.html",
+        "web/src/app.js",
+        "web/src/workspace.js",
+        "web/src/metrics.js",
+        "web/src/schema.js",
+        "app.py:render_html",
+        "tests/test_submission.py"
+      ],
+      "assertions": [
+        "Maintained frontend modules embed into a single offline HTML file. Four submission tests passed, covering safe embedding, offline export and actual HTTP startup."
+      ]
+    },
+    {
+      "id": 88,
+      "requirement": "Browser tests in GitHub CI",
+      "status": "verified",
+      "evidence": [
+        ".github/workflows/checks.yml",
+        "tests/browser_features.cjs",
+        "tests/workspace_browser.cjs",
+        "tests/workspace_integrity.cjs",
+        "tests/analytical_browser.cjs",
+        "https://github.com/alexlhtam/nfl/actions/runs/37922792353"
+      ],
+      "assertions": [
+        "GitHub run 37922792353 passed on commit ba69d19: all four Windows/Linux Python jobs, four Chromium browser suites, Firefox portable-workspace checks, numerical claim verification and release generation. All 43 local Chromium scenarios also passed; feature and analytical suites passed with sixfold CPU throttling."
+      ]
+    },
+    {
+      "id": 89,
+      "requirement": "Shared numerical regressions and Python/JS parity",
+      "status": "verified",
+      "evidence": [
+        "tests/fixtures/metric_cases.json",
+        "tests/metrics_js.cjs",
+        "tests/test_coverage_lift.py"
+      ],
+      "assertions": [
+        "Seventeen synthetic fixtures and two real-play cases compare complete Python/JavaScript result objects. The current 20-test metric suite passed, including minimum-hold and cross-runtime parity regressions."
+      ]
+    },
+    {
+      "id": 90,
+      "requirement": "Reproducible versioned releases and native-resolution exports",
+      "status": "verified",
+      "evidence": [
+        "tools/release.py",
+        "web/src/workspace.js:renderEvidenceCanvas",
+        "tests/workspace_browser.cjs",
+        "submission/qa/workspace-chromium.json",
+        "submission/qa/release-check.json"
+      ],
+      "assertions": [
+        "Release builder uses fixed ZIP timestamps and a per-file SHA-256 manifest; images and clips render directly at 2000 by 1500 pixels. Native export flows passed. Independent clean-commit verification produced byte-identical archives, verified every manifest checksum, regenerated identical offline HTML and passed all 91 packaged tests available without the two optional raw-CSV caches. Final delivery records its own commit and archive checksum."
+      ]
+    },
+    {
+      "id": 91,
+      "requirement": "Decomposition identity on synthetic and real geometries",
+      "status": "verified",
+      "evidence": [
+        "tests/test_coverage_lift.py",
+        "tools/validate_metric.py",
+        "data/metric-validation.json"
+      ],
+      "assertions": [
+        "Coverage Lift plus receiver movement equals net separation change on synthetic, randomized and real geometries. The 20-test metric suite passed; the real-data validator fails violated identities and records residuals."
+      ]
+    },
+    {
+      "id": 92,
+      "requirement": "Meaningful movement/translation/switch/replacement counterexamples",
+      "status": "verified",
+      "evidence": [
+        "tests/fixtures/metric_cases.json",
+        "tests/test_coverage_lift.py",
+        "tests/metrics_js.cjs"
+      ],
+      "assertions": [
+        "Executed counterexamples distinguish receiver-only and defender-only motion, common translation, replacement coverage, nearest switches, missing observations, history gaps and scope entry. Shared numerical parity passed."
+      ]
+    },
+    {
+      "id": 93,
+      "requirement": "Lookback and coordinate-uncertainty sensitivity",
+      "status": "verified",
+      "evidence": [
+        "metrics.py:sensitivity",
+        "web/src/metrics.js:sensitivity",
+        "web/src/app.js:sensitivityAnalysis",
+        "tests/test_coverage_lift.py"
+      ],
+      "assertions": [
+        "Threshold/lookback comparisons and deterministic coordinate jitter are implemented. Reproducible-jitter and zero-amplitude identity tests passed; outputs explicitly are not confidence intervals or calibrated error estimates."
+      ]
+    },
+    {
+      "id": 94,
+      "requirement": "Expert review on randomly selected plays",
+      "status": "withdrawn_by_user",
+      "evidence": [],
+      "reason": "User explicitly states there are no reviewers now or in the future. No participant study or coach-reviewed claim will be made; technical validation remains required."
+    },
+    {
+      "id": 95,
+      "requirement": "Measurement of coaching usefulness against ordinary replay",
+      "status": "withdrawn_by_user",
+      "evidence": [],
+      "reason": "User explicitly states there are no reviewers now or in the future. No participant study or coach-reviewed claim will be made; technical validation remains required."
+    },
+    {
+      "id": 96,
+      "requirement": "Separate hypothetical models from observed measurements",
+      "status": "verified",
+      "evidence": [
+        "research/evaluate_motion.py",
+        "data/model-validation.json",
+        "web/src/metrics.js",
+        "docs/METRIC.md",
+        "tests/test_research_evaluation.py"
+      ],
+      "assertions": [
+        "Forecast projections remain in research and are not enabled as observed coaching measurements. Ten research tests passed, including current-only features and release-limited target access."
+      ]
+    },
+    {
+      "id": 97,
+      "requirement": "Independent-game evaluation of future models",
+      "status": "verified",
+      "evidence": [
+        "research/evaluate_motion.py:evaluate_samples",
+        "data/model-validation.json",
+        "tests/test_research_evaluation.py"
+      ],
+      "assertions": [
+        "Four leave-one-game-out folds evaluate 188342 observed future targets from 321 plays; held-out games never enter fitting. Game independence, target leakage, horizon validity and equal-game weighting tests passed; the four-game sample is not season-wide validation."
+      ]
+    },
+    {
+      "id": 98,
+      "requirement": "Metric-centered guided presentation",
+      "status": "verified",
+      "evidence": [
+        "docs/DEMO.md",
+        "data/stories.json",
+        "tools/validate_metric.py"
+      ],
+      "assertions": [
+        "Executed document checks confirmed six metric-centered demonstration steps with Engram, Hill, Coverage Lift and four-distance explanation. Numerical examples have executable claims; no participant study is claimed."
+      ]
+    },
+    {
+      "id": 99,
+      "requirement": "Five-sentence metric-focused submission README",
+      "status": "verified",
+      "evidence": [
+        "README.md",
+        "docs/DEMO.md"
+      ],
+      "assertions": [
+        "Executed structural check confirmed exactly five non-heading/non-image prose lines, each ending a complete sentence, covering metric, audience, contrast, evidence limits and startup."
+      ]
+    },
+    {
+      "id": 100,
+      "requirement": "Executable evidence for every featured claim",
+      "status": "verified",
+      "evidence": [
+        "tools/validate_metric.py",
+        "tools/audit_source.py",
+        "tests/test_source_audit.py",
+        "data/metric-validation.json",
+        "data/source-audit.json",
+        "data/packs/week-1-additional/source-audit.json",
+        "data/packs/week-1-additional/metric-validation.json"
+      ],
+      "assertions": [
+        "All four bundled stories have executable numerical facts. Both normalized packs pass source and metric audits for 321 plays; source parity covers 280347 observations. Dataset, source-manifest, auditor, Python/JavaScript metric engine and research report hashes were checked against current files after final regeneration."
+      ]
+    }
+  ]
+}

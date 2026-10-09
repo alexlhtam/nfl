@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "85da22eeff2f1d5be106faa9dfe06a1205f2defd",
+  "sourceUrl": "https://github.com/ThompsonJamesBliss/nfl-big-data-bowl-regional-event-data",
+  "files": {
+    "games.csv": {
+      "sha256": "1770c67529d1641683fff2666833fe15b03933c2d3242e2b5afb777c193c50c0",
+      "bytes": 6737
+    },
+    "plays.csv": {
+      "sha256": "bfb36981ae2f187d50a0337dc6bce8beb01e1d08f2cded83e3eba3842c9a0237",
+      "bytes": 2347966
+    },
+    "players.csv": {
+      "sha256": "5a311351ac609c3a7ee4f5014685fad3a193b7d631a7d4842fdb65fcf41c3d15",
+      "bytes": 103891
+    },
+    "pffScoutingData.csv": {
+      "sha256": "4efcc3ad33b11135f394e4da6de595c0b64a0da7cf585ab4b455d9b0567760d5",
+      "bytes": 13014038
+    },
+    "tracking/tracking_2021090900.csv": {
+      "sha256": "b500f6be9570896e5548a65968d1564999da78750dd7157fae9a394388b6a354",
+      "bytes": 9461760
+    },
+    "tracking/tracking_2021110100.csv": {
+      "sha256": "69b52b2a72c043f553089a18180dc9a2e5e1084d4cffab04d4a38dd021b7a174",
+      "bytes": 7789881
+    },
+    "tracking/tracking_2021091200.csv": {
+      "sha256": "640ae28ddba90adc09f7e1d4ac798d8ce2be92da6742e8d9bbbe187d9e3db949",
+      "bytes": 7117085,
+      "gitBlobSha1": "f80e4ae1c53895be31c1ac6289e9bfb79cbb5176",
+      "verification": "Pinned Git tree blob identity checked before SHA-256 was recorded."
+    },
+    "tracking/tracking_2021091201.csv": {
+      "sha256": "b121c5f97985db0aadc51c1948ddf1cc5f5cbf968c53c33a532818d392f6ae6b",
+      "bytes": 7842946,
+      "gitBlobSha1": "f53fb8437477bf832825f6fe92e542e48dfea24d",
+      "verification": "Pinned Git tree blob identity checked before SHA-256 was recorded."
+    }
+  }
+}

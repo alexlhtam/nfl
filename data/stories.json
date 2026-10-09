@@ -1,12 +1,77 @@
 [
   {
+    "id": "2021110100_2120",
+    "receiverId": "44835",
+    "title": "Engram receives +2.64 yards of Coverage Lift",
+    "caption": "From 1.6s to 2.1s, Evan Engram gains 1.09 yards of separation: coverage movement contributes +2.64 yards and receiver movement contributes -1.54. He stays beyond the line and above 3 yards of separation from 2.1s through the 3.1s release. This describes spacing, not who caused the coverage movement.",
+    "focusTime": 2.1,
+    "compareId": "2021110100_1396",
+    "compareReceiverId": "43454",
+    "metric": "coverage_lift",
+    "numericClaims": [
+      {
+        "type": "coverage_lift",
+        "receiverId": "44835",
+        "t0": 1.6,
+        "t1": 2.1,
+        "defenderScope": "coverage",
+        "expected": {
+          "start": 2.4045373775427135,
+          "receiverMoved": 0.7696752561957554,
+          "defenseMoved": 4.950474724710751,
+          "end": 3.498942697444474,
+          "coverageLift": 2.637602394208378,
+          "receiverMovement": -1.5431970743066175,
+          "netChange": 1.0944053199017607
+        },
+        "tolerance": 1e-06,
+        "sustainedWindow": {
+          "threshold": 3,
+          "start": 2.1,
+          "end": 3.1,
+          "minSeconds": 0.3
+        },
+        "requireDownfield": true,
+        "requireInBounds": true
+      }
+    ]
+  },
+  {
     "id": "2021110100_1396",
     "receiverId": "43454",
-    "title": "Hill's window opens and stays open",
-    "caption": "Tyreek Hill is 3.38 yards downfield with only 0.89 yards of separation at 1.6s. He clears 3 yards at 2.3s and remains above that threshold through release at 4.1s, when separation is 5.78 yards. Compare with Hardman's later window closing before release.",
+    "title": "Hill opens through receiver movement",
+    "caption": "Between 1.8s and 2.3s, Hill's separation rises 1.66 yards. Receiver movement contributes +1.76 yards while Coverage Lift is -0.10 yards. Compare with Engram's opening to distinguish two geometric sources of space.",
     "focusTime": 2.3,
-    "compareId": "2021110100_2032",
-    "compareReceiverId": "47839"
+    "compareId": "2021110100_2120",
+    "compareReceiverId": "44835",
+    "metric": "coverage_lift",
+    "numericClaims": [
+      {
+        "type": "coverage_lift",
+        "receiverId": "43454",
+        "t0": 1.8,
+        "t1": 2.3,
+        "defenderScope": "coverage",
+        "expected": {
+          "start": 1.4616771189288018,
+          "receiverMoved": 3.327416415178601,
+          "defenseMoved": 1.4767870530310032,
+          "end": 3.121281787983911,
+          "coverageLift": -0.0955123465462443,
+          "receiverMovement": 1.7551170156013538,
+          "netChange": 1.6596046690551094
+        },
+        "tolerance": 1e-06,
+        "sustainedWindow": {
+          "threshold": 3,
+          "start": 2.3,
+          "end": 4.1,
+          "minSeconds": 0.3
+        },
+        "requireDownfield": true,
+        "requireInBounds": true
+      }
+    ]
   },
   {
     "id": "2021110100_2032",

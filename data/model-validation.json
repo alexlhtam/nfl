@@ -1,0 +1,1666 @@
+{
+  "folds": [
+    {
+      "heldOutGameId": 2021090900,
+      "trainingGameIds": [
+        2021091200,
+        2021091201,
+        2021110100
+      ],
+      "testGameIds": [
+        2021090900
+      ],
+      "testPlays": [
+        "2021090900_1078",
+        "2021090900_1203",
+        "2021090900_1227",
+        "2021090900_1267",
+        "2021090900_1312",
+        "2021090900_1368",
+        "2021090900_137",
+        "2021090900_1392",
+        "2021090900_1425",
+        "2021090900_1506",
+        "2021090900_1563",
+        "2021090900_1587",
+        "2021090900_1687",
+        "2021090900_1726",
+        "2021090900_1776",
+        "2021090900_187",
+        "2021090900_1918",
+        "2021090900_1940",
+        "2021090900_2008",
+        "2021090900_2032",
+        "2021090900_2088",
+        "2021090900_2129",
+        "2021090900_2169",
+        "2021090900_2211",
+        "2021090900_2233",
+        "2021090900_2257",
+        "2021090900_2279",
+        "2021090900_2298",
+        "2021090900_2330",
+        "2021090900_2397",
+        "2021090900_2419",
+        "2021090900_2441",
+        "2021090900_2530",
+        "2021090900_2554",
+        "2021090900_2632",
+        "2021090900_2656",
+        "2021090900_2678",
+        "2021090900_2735",
+        "2021090900_2780",
+        "2021090900_282",
+        "2021090900_2871",
+        "2021090900_2893",
+        "2021090900_2915",
+        "2021090900_3014",
+        "2021090900_3062",
+        "2021090900_3110",
+        "2021090900_3134",
+        "2021090900_3216",
+        "2021090900_3261",
+        "2021090900_3306",
+        "2021090900_3330",
+        "2021090900_3364",
+        "2021090900_3406",
+        "2021090900_3462",
+        "2021090900_349",
+        "2021090900_3588",
+        "2021090900_3633",
+        "2021090900_3655",
+        "2021090900_3724",
+        "2021090900_3746",
+        "2021090900_3793",
+        "2021090900_3862",
+        "2021090900_3909",
+        "2021090900_3933",
+        "2021090900_3962",
+        "2021090900_4094",
+        "2021090900_410",
+        "2021090900_4141",
+        "2021090900_4189",
+        "2021090900_4211",
+        "2021090900_4246",
+        "2021090900_4287",
+        "2021090900_434",
+        "2021090900_4393",
+        "2021090900_4428",
+        "2021090900_4538",
+        "2021090900_456",
+        "2021090900_4560",
+        "2021090900_4624",
+        "2021090900_4653",
+        "2021090900_4677",
+        "2021090900_4699",
+        "2021090900_4728",
+        "2021090900_4750",
+        "2021090900_4772",
+        "2021090900_480",
+        "2021090900_509",
+        "2021090900_559",
+        "2021090900_583",
+        "2021090900_687",
+        "2021090900_735",
+        "2021090900_764",
+        "2021090900_869",
+        "2021090900_947",
+        "2021090900_97"
+      ],
+      "fit": {
+        "scale": 1.0,
+        "unconstrainedScale": 1.0323935628258234,
+        "identifiable": true,
+        "trainingGameIds": [
+          2021091200,
+          2021091201,
+          2021110100
+        ],
+        "heldOutGameIds": [
+          2021090900
+        ],
+        "trainingSamples": 138424,
+        "trainingPlays": 226,
+        "fitWeighting": "Equal weight per observed player-frame; no held-out observations enter fitting."
+      },
+      "models": {
+        "stationary": {
+          "samples": 49918,
+          "plays": 95,
+          "players": 69,
+          "meanErrorYards": 1.4861499674364547,
+          "rmseYards": 1.7484050082631277,
+          "medianErrorYards": 1.308166656049604,
+          "p90ErrorYards": 2.8764040050034763,
+          "meanResidualX": -0.18501682759725951,
+          "meanResidualY": 0.024102928803237316
+        },
+        "constant_velocity": {
+          "samples": 49918,
+          "plays": 95,
+          "players": 69,
+          "meanErrorYards": 0.3930652742978564,
+          "rmseYards": 0.4470061031096141,
+          "medianErrorYards": 0.36673493051459727,
+          "p90ErrorYards": 0.6875661978790106,
+          "meanResidualX": -0.04661571863604799,
+          "meanResidualY": 0.004766061277734493
+        },
+        "trained_shrinkage": {
+          "samples": 49918,
+          "plays": 95,
+          "players": 69,
+          "meanErrorYards": 0.3930652742978564,
+          "rmseYards": 0.4470061031096141,
+          "medianErrorYards": 0.36673493051459727,
+          "p90ErrorYards": 0.6875661978790106,
+          "meanResidualX": -0.04661571863604799,
+          "meanResidualY": 0.004766061277734493
+        }
+      },
+      "byRole": {
+        "block": {
+          "stationary": {
+            "samples": 11931,
+            "plays": 95,
+            "players": 19,
+            "meanErrorYards": 0.9941886858116525,
+            "rmseYards": 1.0967784639162101,
+            "medianErrorYards": 0.9708243919473791,
+            "p90ErrorYards": 1.5867261893597164,
+            "meanResidualX": 0.7483572206856088,
+            "meanResidualY": 0.013288073086916442
+          },
+          "constant_velocity": {
+            "samples": 11931,
+            "plays": 95,
+            "players": 19,
+            "meanErrorYards": 0.3172254508790534,
+            "rmseYards": 0.3544178272680859,
+            "medianErrorYards": 0.3074095575983837,
+            "p90ErrorYards": 0.5250678258319819,
+            "meanResidualX": 0.09353126688748445,
+            "meanResidualY": -0.0029149593291612204
+          },
+          "trained_shrinkage": {
+            "samples": 11931,
+            "plays": 95,
+            "players": 19,
+            "meanErrorYards": 0.3172254508790534,
+            "rmseYards": 0.3544178272680859,
+            "medianErrorYards": 0.3074095575983837,
+            "p90ErrorYards": 0.5250678258319819,
+            "meanResidualX": 0.09353126688748445,
+            "meanResidualY": -0.0029149593291612204
+          }
+        },
+        "coverage": {
+          "stationary": {
+            "samples": 15285,
+            "plays": 95,
+            "players": 29,
+            "meanErrorYards": 1.418271092877285,
+            "rmseYards": 1.682640573612585,
+            "medianErrorYards": 1.3259336333316205,
+            "p90ErrorYards": 2.6590599842801566,
+            "meanResidualX": -0.8607033038927053,
+            "meanResidualY": 0.030100098135426887
+          },
+          "constant_velocity": {
+            "samples": 15285,
+            "plays": 95,
+            "players": 29,
+            "meanErrorYards": 0.36787017216672746,
+            "rmseYards": 0.42243782392747076,
+            "medianErrorYards": 0.3368043515620873,
+            "p90ErrorYards": 0.6502489958072369,
+            "meanResidualX": -0.13166258063859893,
+            "meanResidualY": 0.009348054911896088
+          },
+          "trained_shrinkage": {
+            "samples": 15285,
+            "plays": 95,
+            "players": 29,
+            "meanErrorYards": 0.36787017216672746,
+            "rmseYards": 0.42243782392747076,
+            "medianErrorYards": 0.3368043515620873,
+            "p90ErrorYards": 0.6502489958072369,
+            "meanResidualX": -0.13166258063859893,
+            "meanResidualY": 0.009348054911896088
+          }
+        },
+        "pass": {
+          "stationary": {
+            "samples": 2269,
+            "plays": 95,
+            "players": 2,
+            "meanErrorYards": 1.1360286261226524,
+            "rmseYards": 1.3811813340322354,
+            "medianErrorYards": 0.9808159868191424,
+            "p90ErrorYards": 2.205923842747081,
+            "meanResidualX": 0.6863243719700308,
+            "meanResidualY": -0.023353900396650498
+          },
+          "constant_velocity": {
+            "samples": 2269,
+            "plays": 95,
+            "players": 2,
+            "meanErrorYards": 0.3632128558022222,
+            "rmseYards": 0.41172793998773655,
+            "medianErrorYards": 0.34460758246961315,
+            "p90ErrorYards": 0.6317935269744268,
+            "meanResidualX": -0.010637261543028026,
+            "meanResidualY": 0.0012715769212812106
+          },
+          "trained_shrinkage": {
+            "samples": 2269,
+            "plays": 95,
+            "players": 2,
+            "meanErrorYards": 0.3632128558022222,
+            "rmseYards": 0.41172793998773655,
+            "medianErrorYards": 0.34460758246961315,
+            "p90ErrorYards": 0.6317935269744268,
+            "meanResidualX": -0.010637261543028026,
+            "meanResidualY": 0.0012715769212812106
+          }
+        },
+        "route": {
+          "stationary": {
+            "samples": 10759,
+            "plays": 95,
+            "players": 19,
+            "meanErrorYards": 2.195210171604258,
+            "rmseYards": 2.452726621141374,
+            "medianErrorYards": 2.2703523955544864,
+            "p90ErrorYards": 3.571442285687958,
+            "meanResidualX": -1.6634073798680173,
+            "meanResidualY": 0.08469467422622921
+          },
+          "constant_velocity": {
+            "samples": 10759,
+            "plays": 95,
+            "players": 19,
+            "meanErrorYards": 0.5046454643534254,
+            "rmseYards": 0.5551054840540112,
+            "medianErrorYards": 0.5010467312331368,
+            "p90ErrorYards": 0.8149843380358466,
+            "meanResidualX": -0.20917563127633015,
+            "meanResidualY": 0.01467379736020673
+          },
+          "trained_shrinkage": {
+            "samples": 10759,
+            "plays": 95,
+            "players": 19,
+            "meanErrorYards": 0.5046454643534254,
+            "rmseYards": 0.5551054840540112,
+            "medianErrorYards": 0.5010467312331368,
+            "p90ErrorYards": 0.8149843380358466,
+            "meanResidualX": -0.20917563127633015,
+            "meanResidualY": 0.01467379736020673
+          }
+        },
+        "rush": {
+          "stationary": {
+            "samples": 9674,
+            "plays": 95,
+            "players": 30,
+            "meanErrorYards": 1.4936716994503112,
+            "rmseYards": 1.6366799829378724,
+            "medianErrorYards": 1.4489306385181955,
+            "p90ErrorYards": 2.378760181270908,
+            "meanResidualX": 1.1712693818482531,
+            "meanResidualY": -0.028291296258011165
+          },
+          "constant_velocity": {
+            "samples": 9674,
+            "plays": 95,
+            "players": 30,
+            "meanErrorYards": 0.4093145964027533,
+            "rmseYards": 0.46011643145632064,
+            "medianErrorYards": 0.3955774134156186,
+            "p90ErrorYards": 0.6943965445102683,
+            "meanResidualX": 0.08726836058459073,
+            "meanResidualY": -0.0031998125432096372
+          },
+          "trained_shrinkage": {
+            "samples": 9674,
+            "plays": 95,
+            "players": 30,
+            "meanErrorYards": 0.4093145964027533,
+            "rmseYards": 0.46011643145632064,
+            "medianErrorYards": 0.3955774134156186,
+            "p90ErrorYards": 0.6943965445102683,
+            "meanResidualX": 0.08726836058459073,
+            "meanResidualY": -0.0031998125432096372
+          }
+        }
+      },
+      "byQuality": {
+        "cohortEligible": {
+          "stationary": {
+            "samples": 44374,
+            "plays": 87,
+            "players": 69,
+            "meanErrorYards": 1.4804045694521146,
+            "rmseYards": 1.7420592533409445,
+            "medianErrorYards": 1.3007113402921315,
+            "p90ErrorYards": 2.8622543562723353,
+            "meanResidualX": -0.1705232793978456,
+            "meanResidualY": 0.04210123045026368
+          },
+          "constant_velocity": {
+            "samples": 44374,
+            "plays": 87,
+            "players": 69,
+            "meanErrorYards": 0.3906392613610801,
+            "rmseYards": 0.4443268122714869,
+            "medianErrorYards": 0.3643291775273565,
+            "p90ErrorYards": 0.6834997643125441,
+            "meanResidualX": -0.04518804190379069,
+            "meanResidualY": 0.009387302647529634
+          },
+          "trained_shrinkage": {
+            "samples": 44374,
+            "plays": 87,
+            "players": 69,
+            "meanErrorYards": 0.3906392613610801,
+            "rmseYards": 0.4443268122714869,
+            "medianErrorYards": 0.3643291775273565,
+            "p90ErrorYards": 0.6834997643125441,
+            "meanResidualX": -0.04518804190379069,
+            "meanResidualY": 0.009387302647529634
+          }
+        },
+        "diagnosticFlagged": {
+          "stationary": {
+            "samples": 5544,
+            "plays": 8,
+            "players": 52,
+            "meanErrorYards": 1.532135950509525,
+            "rmseYards": 1.79838956136595,
+            "medianErrorYards": 1.3870832707519727,
+            "p90ErrorYards": 2.9861346252304157,
+            "meanResidualX": -0.3010227272727273,
+            "meanResidualY": -0.1199549062049062
+          },
+          "constant_velocity": {
+            "samples": 5544,
+            "plays": 8,
+            "players": 52,
+            "meanErrorYards": 0.4124830048275305,
+            "rmseYards": 0.467898550836547,
+            "medianErrorYards": 0.38815316717516374,
+            "p90ErrorYards": 0.7208769172274947,
+            "meanResidualX": -0.05804279787796453,
+            "meanResidualY": -0.032222207940030584
+          },
+          "trained_shrinkage": {
+            "samples": 5544,
+            "plays": 8,
+            "players": 52,
+            "meanErrorYards": 0.4124830048275305,
+            "rmseYards": 0.467898550836547,
+            "medianErrorYards": 0.38815316717516374,
+            "p90ErrorYards": 0.7208769172274947,
+            "meanResidualX": -0.05804279787796453,
+            "meanResidualY": -0.032222207940030584
+          }
+        }
+      }
+    },
+    {
+      "heldOutGameId": 2021091200,
+      "trainingGameIds": [
+        2021090900,
+        2021091201,
+        2021110100
+      ],
+      "testGameIds": [
+        2021091200
+      ],
+      "testPlays": [
+        "2021091200_1023",
+        "2021091200_1085",
+        "2021091200_1153",
+        "2021091200_1182",
+        "2021091200_1206",
+        "2021091200_122",
+        "2021091200_1249",
+        "2021091200_1326",
+        "2021091200_1459",
+        "2021091200_146",
+        "2021091200_1494",
+        "2021091200_1558",
+        "2021091200_1582",
+        "2021091200_1606",
+        "2021091200_1630",
+        "2021091200_1732",
+        "2021091200_176",
+        "2021091200_1792",
+        "2021091200_1991",
+        "2021091200_2020",
+        "2021091200_2063",
+        "2021091200_2121",
+        "2021091200_2145",
+        "2021091200_2214",
+        "2021091200_2275",
+        "2021091200_231",
+        "2021091200_2321",
+        "2021091200_2399",
+        "2021091200_2631",
+        "2021091200_2675",
+        "2021091200_2720",
+        "2021091200_2767",
+        "2021091200_2906",
+        "2021091200_2935",
+        "2021091200_2978",
+        "2021091200_303",
+        "2021091200_3045",
+        "2021091200_3110",
+        "2021091200_3145",
+        "2021091200_3383",
+        "2021091200_3416",
+        "2021091200_348",
+        "2021091200_3480",
+        "2021091200_3502",
+        "2021091200_3599",
+        "2021091200_3659",
+        "2021091200_370",
+        "2021091200_3728",
+        "2021091200_3752",
+        "2021091200_3776",
+        "2021091200_3798",
+        "2021091200_3820",
+        "2021091200_3928",
+        "2021091200_3988",
+        "2021091200_4017",
+        "2021091200_4041",
+        "2021091200_4112",
+        "2021091200_4131",
+        "2021091200_4240",
+        "2021091200_4274",
+        "2021091200_4298",
+        "2021091200_4317",
+        "2021091200_4346",
+        "2021091200_56",
+        "2021091200_605",
+        "2021091200_705",
+        "2021091200_750",
+        "2021091200_821",
+        "2021091200_843",
+        "2021091200_864",
+        "2021091200_966"
+      ],
+      "fit": {
+        "scale": 1.0,
+        "unconstrainedScale": 1.0368753608464907,
+        "identifiable": true,
+        "trainingGameIds": [
+          2021090900,
+          2021091201,
+          2021110100
+        ],
+        "heldOutGameIds": [
+          2021091200
+        ],
+        "trainingSamples": 146344,
+        "trainingPlays": 250,
+        "fitWeighting": "Equal weight per observed player-frame; no held-out observations enter fitting."
+      },
+      "models": {
+        "stationary": {
+          "samples": 41998,
+          "plays": 71,
+          "players": 75,
+          "meanErrorYards": 1.4464197916961792,
+          "rmseYards": 1.701729172848238,
+          "medianErrorYards": 1.3074593671351566,
+          "p90ErrorYards": 2.7148848962709184,
+          "meanResidualX": -0.1518884232582504,
+          "meanResidualY": 0.13317443687794658
+        },
+        "constant_velocity": {
+          "samples": 41998,
+          "plays": 71,
+          "players": 75,
+          "meanErrorYards": 0.3773679772023566,
+          "rmseYards": 0.4299429865804664,
+          "medianErrorYards": 0.3494956275169838,
+          "p90ErrorYards": 0.6654516147613941,
+          "meanResidualX": -0.02727200086464489,
+          "meanResidualY": 0.01557653653399446
+        },
+        "trained_shrinkage": {
+          "samples": 41998,
+          "plays": 71,
+          "players": 75,
+          "meanErrorYards": 0.3773679772023566,
+          "rmseYards": 0.4299429865804664,
+          "medianErrorYards": 0.3494956275169838,
+          "p90ErrorYards": 0.6654516147613941,
+          "meanResidualX": -0.02727200086464489,
+          "meanResidualY": 0.01557653653399446
+        }
+      },
+      "byRole": {
+        "block": {
+          "stationary": {
+            "samples": 10306,
+            "plays": 71,
+            "players": 19,
+            "meanErrorYards": 1.0597541475768575,
+            "rmseYards": 1.1734488834907675,
+            "medianErrorYards": 1.0400961449578365,
+            "p90ErrorYards": 1.7165663401103968,
+            "meanResidualX": 0.702563555210557,
+            "meanResidualY": 0.04853483407723657
+          },
+          "constant_velocity": {
+            "samples": 10306,
+            "plays": 71,
+            "players": 19,
+            "meanErrorYards": 0.3064321665348221,
+            "rmseYards": 0.3430631335804919,
+            "medianErrorYards": 0.2915681262511114,
+            "p90ErrorYards": 0.513768886308001,
+            "meanResidualX": 0.0756459373408489,
+            "meanResidualY": 0.0016590017678794918
+          },
+          "trained_shrinkage": {
+            "samples": 10306,
+            "plays": 71,
+            "players": 19,
+            "meanErrorYards": 0.3064321665348221,
+            "rmseYards": 0.3430631335804919,
+            "medianErrorYards": 0.2915681262511114,
+            "p90ErrorYards": 0.513768886308001,
+            "meanResidualX": 0.0756459373408489,
+            "meanResidualY": 0.0016590017678794918
+          }
+        },
+        "coverage": {
+          "stationary": {
+            "samples": 13214,
+            "plays": 71,
+            "players": 29,
+            "meanErrorYards": 1.3113146466109413,
+            "rmseYards": 1.5564080664531452,
+            "medianErrorYards": 1.2278029151055259,
+            "p90ErrorYards": 2.4661102976144424,
+            "meanResidualX": -0.7287710004540638,
+            "meanResidualY": 0.20468593915544123
+          },
+          "constant_velocity": {
+            "samples": 13214,
+            "plays": 71,
+            "players": 29,
+            "meanErrorYards": 0.34424332230964083,
+            "rmseYards": 0.39646174698572123,
+            "medianErrorYards": 0.31606422269832163,
+            "p90ErrorYards": 0.614528556278237,
+            "meanResidualX": -0.08340820837539614,
+            "meanResidualY": 0.027325509512109672
+          },
+          "trained_shrinkage": {
+            "samples": 13214,
+            "plays": 71,
+            "players": 29,
+            "meanErrorYards": 0.34424332230964083,
+            "rmseYards": 0.39646174698572123,
+            "medianErrorYards": 0.31606422269832163,
+            "p90ErrorYards": 0.614528556278237,
+            "meanResidualX": -0.08340820837539614,
+            "meanResidualY": 0.027325509512109672
+          }
+        },
+        "pass": {
+          "stationary": {
+            "samples": 1909,
+            "plays": 71,
+            "players": 2,
+            "meanErrorYards": 1.1209796709208661,
+            "rmseYards": 1.4046553035314857,
+            "medianErrorYards": 0.8886506625215587,
+            "p90ErrorYards": 2.3108872754853267,
+            "meanResidualX": 0.5333525405971713,
+            "meanResidualY": 0.1177370350969094
+          },
+          "constant_velocity": {
+            "samples": 1909,
+            "plays": 71,
+            "players": 2,
+            "meanErrorYards": 0.3604840329324746,
+            "rmseYards": 0.40932826509370157,
+            "medianErrorYards": 0.34378661604808214,
+            "p90ErrorYards": 0.627326332346475,
+            "meanResidualX": -0.004889792420009351,
+            "meanResidualY": 0.02339526940580815
+          },
+          "trained_shrinkage": {
+            "samples": 1909,
+            "plays": 71,
+            "players": 2,
+            "meanErrorYards": 0.3604840329324746,
+            "rmseYards": 0.40932826509370157,
+            "medianErrorYards": 0.34378661604808214,
+            "p90ErrorYards": 0.627326332346475,
+            "meanResidualX": -0.004889792420009351,
+            "meanResidualY": 0.02339526940580815
+          }
+        },
+        "route": {
+          "stationary": {
+            "samples": 8784,
+            "plays": 71,
+            "players": 22,
+            "meanErrorYards": 2.122000992115006,
+            "rmseYards": 2.388390167738837,
+            "medianErrorYards": 2.1670948250678728,
+            "p90ErrorYards": 3.586990381921866,
+            "meanResidualX": -1.527130009107468,
+            "meanResidualY": 0.1985610200364299
+          },
+          "constant_velocity": {
+            "samples": 8784,
+            "plays": 71,
+            "players": 22,
+            "meanErrorYards": 0.49047759002586694,
+            "rmseYards": 0.5421017160339773,
+            "medianErrorYards": 0.4840864976567657,
+            "p90ErrorYards": 0.8035380936689824,
+            "meanResidualX": -0.16151895650531012,
+            "meanResidualY": 0.018681555920446243
+          },
+          "trained_shrinkage": {
+            "samples": 8784,
+            "plays": 71,
+            "players": 22,
+            "meanErrorYards": 0.49047759002586694,
+            "rmseYards": 0.5421017160339773,
+            "medianErrorYards": 0.4840864976567657,
+            "p90ErrorYards": 0.8035380936689824,
+            "meanResidualX": -0.16151895650531012,
+            "meanResidualY": 0.018681555920446243
+          }
+        },
+        "rush": {
+          "stationary": {
+            "samples": 7785,
+            "plays": 71,
+            "players": 25,
+            "meanErrorYards": 1.5051500988935027,
+            "rmseYards": 1.6636321237846952,
+            "medianErrorYards": 1.4676852523616908,
+            "p90ErrorYards": 2.4314810301542544,
+            "meanResidualX": 1.0798317276814386,
+            "meanResidualY": 0.05384971098265897
+          },
+          "constant_velocity": {
+            "samples": 7785,
+            "plays": 71,
+            "players": 25,
+            "meanErrorYards": 0.40401541009400055,
+            "rmseYards": 0.44938957291172926,
+            "medianErrorYards": 0.3891356608234916,
+            "p90ErrorYards": 0.6714669110872845,
+            "meanResidualX": 0.0777516596784562,
+            "meanResidualY": 0.0086379023687898
+          },
+          "trained_shrinkage": {
+            "samples": 7785,
+            "plays": 71,
+            "players": 25,
+            "meanErrorYards": 0.40401541009400055,
+            "rmseYards": 0.44938957291172926,
+            "medianErrorYards": 0.3891356608234916,
+            "p90ErrorYards": 0.6714669110872845,
+            "meanResidualX": 0.0777516596784562,
+            "meanResidualY": 0.0086379023687898
+          }
+        }
+      },
+      "byQuality": {
+        "cohortEligible": {
+          "stationary": {
+            "samples": 37620,
+            "plays": 65,
+            "players": 73,
+            "meanErrorYards": 1.4395698348632804,
+            "rmseYards": 1.691752762950787,
+            "medianErrorYards": 1.3106105447462286,
+            "p90ErrorYards": 2.688884527085534,
+            "meanResidualX": -0.1346937799043062,
+            "meanResidualY": 0.13073099415204678
+          },
+          "constant_velocity": {
+            "samples": 37620,
+            "plays": 65,
+            "players": 73,
+            "meanErrorYards": 0.3770108021116075,
+            "rmseYards": 0.42944845614920674,
+            "medianErrorYards": 0.3492225046907597,
+            "p90ErrorYards": 0.6634298169904432,
+            "meanResidualX": -0.027499680062309715,
+            "meanResidualY": 0.016906879895654908
+          },
+          "trained_shrinkage": {
+            "samples": 37620,
+            "plays": 65,
+            "players": 73,
+            "meanErrorYards": 0.3770108021116075,
+            "rmseYards": 0.42944845614920674,
+            "medianErrorYards": 0.3492225046907597,
+            "p90ErrorYards": 0.6634298169904432,
+            "meanResidualX": -0.027499680062309715,
+            "meanResidualY": 0.016906879895654908
+          }
+        },
+        "diagnosticFlagged": {
+          "stationary": {
+            "samples": 4378,
+            "plays": 6,
+            "players": 56,
+            "meanErrorYards": 1.5052812298080251,
+            "rmseYards": 1.7851596560856544,
+            "medianErrorYards": 1.2756958861167602,
+            "p90ErrorYards": 3.006010645357066,
+            "meanResidualX": -0.29964138876199176,
+            "meanResidualY": 0.1541708542713568
+          },
+          "constant_velocity": {
+            "samples": 4378,
+            "plays": 6,
+            "players": 56,
+            "meanErrorYards": 0.38043717019321616,
+            "rmseYards": 0.43416925350885127,
+            "medianErrorYards": 0.3508324108444558,
+            "p90ErrorYards": 0.6812452938201596,
+            "meanResidualX": -0.02531556152792707,
+            "meanResidualY": 0.004144942823243895
+          },
+          "trained_shrinkage": {
+            "samples": 4378,
+            "plays": 6,
+            "players": 56,
+            "meanErrorYards": 0.38043717019321616,
+            "rmseYards": 0.43416925350885127,
+            "medianErrorYards": 0.3508324108444558,
+            "p90ErrorYards": 0.6812452938201596,
+            "meanResidualX": -0.02531556152792707,
+            "meanResidualY": 0.004144942823243895
+          }
+        }
+      }
+    },
+    {
+      "heldOutGameId": 2021091201,
+      "trainingGameIds": [
+        2021090900,
+        2021091200,
+        2021110100
+      ],
+      "testGameIds": [
+        2021091201
+      ],
+      "testPlays": [
+        "2021091201_1058",
+        "2021091201_1087",
+        "2021091201_111",
+        "2021091201_1148",
+        "2021091201_1172",
+        "2021091201_1234",
+        "2021091201_1300",
+        "2021091201_1367",
+        "2021091201_1393",
+        "2021091201_1422",
+        "2021091201_1446",
+        "2021091201_1486",
+        "2021091201_1548",
+        "2021091201_1572",
+        "2021091201_1605",
+        "2021091201_1629",
+        "2021091201_1653",
+        "2021091201_1710",
+        "2021091201_1746",
+        "2021091201_1808",
+        "2021091201_1870",
+        "2021091201_1951",
+        "2021091201_2126",
+        "2021091201_2209",
+        "2021091201_2302",
+        "2021091201_2362",
+        "2021091201_2392",
+        "2021091201_2414",
+        "2021091201_2438",
+        "2021091201_2483",
+        "2021091201_2547",
+        "2021091201_2590",
+        "2021091201_2612",
+        "2021091201_262",
+        "2021091201_2634",
+        "2021091201_2709",
+        "2021091201_2731",
+        "2021091201_2828",
+        "2021091201_2850",
+        "2021091201_2912",
+        "2021091201_2936",
+        "2021091201_2983",
+        "2021091201_3004",
+        "2021091201_3049",
+        "2021091201_3165",
+        "2021091201_3219",
+        "2021091201_3312",
+        "2021091201_3346",
+        "2021091201_3431",
+        "2021091201_345",
+        "2021091201_3584",
+        "2021091201_3655",
+        "2021091201_3709",
+        "2021091201_3756",
+        "2021091201_3799",
+        "2021091201_3878",
+        "2021091201_3967",
+        "2021091201_3989",
+        "2021091201_4011",
+        "2021091201_4033",
+        "2021091201_406",
+        "2021091201_4074",
+        "2021091201_4103",
+        "2021091201_4156",
+        "2021091201_4180",
+        "2021091201_4209",
+        "2021091201_4233",
+        "2021091201_4266",
+        "2021091201_430",
+        "2021091201_454",
+        "2021091201_476",
+        "2021091201_500",
+        "2021091201_561",
+        "2021091201_589",
+        "2021091201_63",
+        "2021091201_639",
+        "2021091201_691",
+        "2021091201_762",
+        "2021091201_856",
+        "2021091201_901",
+        "2021091201_997"
+      ],
+      "fit": {
+        "scale": 1.0,
+        "unconstrainedScale": 1.0351578671877841,
+        "identifiable": true,
+        "trainingGameIds": [
+          2021090900,
+          2021091200,
+          2021110100
+        ],
+        "heldOutGameIds": [
+          2021091201
+        ],
+        "trainingSamples": 141306,
+        "trainingPlays": 240,
+        "fitWeighting": "Equal weight per observed player-frame; no held-out observations enter fitting."
+      },
+      "models": {
+        "stationary": {
+          "samples": 47036,
+          "plays": 81,
+          "players": 65,
+          "meanErrorYards": 1.4691966660596916,
+          "rmseYards": 1.726254484557403,
+          "medianErrorYards": 1.301153334545932,
+          "p90ErrorYards": 2.778344831009998,
+          "meanResidualX": -0.2818266859426822,
+          "meanResidualY": -0.013312781699124074
+        },
+        "constant_velocity": {
+          "samples": 47036,
+          "plays": 81,
+          "players": 65,
+          "meanErrorYards": 0.3944934542903091,
+          "rmseYards": 0.4464350513584925,
+          "medianErrorYards": 0.3692035146406838,
+          "p90ErrorYards": 0.6856129812308621,
+          "meanResidualX": -0.04673370774251747,
+          "meanResidualY": -0.0022429602952042807
+        },
+        "trained_shrinkage": {
+          "samples": 47036,
+          "plays": 81,
+          "players": 65,
+          "meanErrorYards": 0.3944934542903091,
+          "rmseYards": 0.4464350513584925,
+          "medianErrorYards": 0.3692035146406838,
+          "p90ErrorYards": 0.6856129812308621,
+          "meanResidualX": -0.04673370774251747,
+          "meanResidualY": -0.0022429602952042807
+        }
+      },
+      "byRole": {
+        "block": {
+          "stationary": {
+            "samples": 11228,
+            "plays": 81,
+            "players": 18,
+            "meanErrorYards": 0.9887362398251586,
+            "rmseYards": 1.1010133258882013,
+            "medianErrorYards": 0.946414285606465,
+            "p90ErrorYards": 1.6633099530754953,
+            "meanResidualX": 0.6825961881011756,
+            "meanResidualY": 0.012668329177057363
+          },
+          "constant_velocity": {
+            "samples": 11228,
+            "plays": 81,
+            "players": 18,
+            "meanErrorYards": 0.3276810358449869,
+            "rmseYards": 0.36431481113226105,
+            "medianErrorYards": 0.31599868946481297,
+            "p90ErrorYards": 0.5368619034231701,
+            "meanResidualX": 0.06916970046162323,
+            "meanResidualY": -0.002287966483555635
+          },
+          "trained_shrinkage": {
+            "samples": 11228,
+            "plays": 81,
+            "players": 18,
+            "meanErrorYards": 0.3276810358449869,
+            "rmseYards": 0.36431481113226105,
+            "medianErrorYards": 0.31599868946481297,
+            "p90ErrorYards": 0.5368619034231701,
+            "meanResidualX": 0.06916970046162323,
+            "meanResidualY": -0.002287966483555635
+          }
+        },
+        "coverage": {
+          "stationary": {
+            "samples": 14708,
+            "plays": 81,
+            "players": 21,
+            "meanErrorYards": 1.4485093250028094,
+            "rmseYards": 1.6906540619515762,
+            "medianErrorYards": 1.3875518008348386,
+            "p90ErrorYards": 2.6255094743687413,
+            "meanResidualX": -0.9171926842534674,
+            "meanResidualY": -0.021521620886592333
+          },
+          "constant_velocity": {
+            "samples": 14708,
+            "plays": 81,
+            "players": 21,
+            "meanErrorYards": 0.36240387338521773,
+            "rmseYards": 0.41408961562315205,
+            "medianErrorYards": 0.3371913196663542,
+            "p90ErrorYards": 0.63629046165875,
+            "meanResidualX": -0.11041702726072808,
+            "meanResidualY": -0.004140640001798685
+          },
+          "trained_shrinkage": {
+            "samples": 14708,
+            "plays": 81,
+            "players": 21,
+            "meanErrorYards": 0.36240387338521773,
+            "rmseYards": 0.41408961562315205,
+            "medianErrorYards": 0.3371913196663542,
+            "p90ErrorYards": 0.63629046165875,
+            "meanResidualX": -0.11041702726072808,
+            "meanResidualY": -0.004140640001798685
+          }
+        },
+        "pass": {
+          "stationary": {
+            "samples": 2138,
+            "plays": 81,
+            "players": 2,
+            "meanErrorYards": 0.8754363024691232,
+            "rmseYards": 1.063476745233299,
+            "medianErrorYards": 0.765702191778847,
+            "p90ErrorYards": 1.6484234892769571,
+            "meanResidualX": 0.41306828811973806,
+            "meanResidualY": 0.007913938260056113
+          },
+          "constant_velocity": {
+            "samples": 2138,
+            "plays": 81,
+            "players": 2,
+            "meanErrorYards": 0.3288006911457006,
+            "rmseYards": 0.3663381046003738,
+            "medianErrorYards": 0.31487452880399136,
+            "p90ErrorYards": 0.5487686673593928,
+            "meanResidualX": -0.021623022112883146,
+            "meanResidualY": 0.010087639242307272
+          },
+          "trained_shrinkage": {
+            "samples": 2138,
+            "plays": 81,
+            "players": 2,
+            "meanErrorYards": 0.3288006911457006,
+            "rmseYards": 0.3663381046003738,
+            "medianErrorYards": 0.31487452880399136,
+            "p90ErrorYards": 0.5487686673593928,
+            "meanResidualX": -0.021623022112883146,
+            "meanResidualY": 0.010087639242307272
+          }
+        },
+        "route": {
+          "stationary": {
+            "samples": 10152,
+            "plays": 81,
+            "players": 16,
+            "meanErrorYards": 2.1820063440159103,
+            "rmseYards": 2.433817378343509,
+            "medianErrorYards": 2.224522417816889,
+            "p90ErrorYards": 3.600055555126887,
+            "meanResidualX": -1.7029235618597323,
+            "meanResidualY": -0.008966706067769892
+          },
+          "constant_velocity": {
+            "samples": 10152,
+            "plays": 81,
+            "players": 16,
+            "meanErrorYards": 0.4931284937767938,
+            "rmseYards": 0.5454408129271879,
+            "medianErrorYards": 0.4826923571929615,
+            "p90ErrorYards": 0.8116874439326084,
+            "meanResidualX": -0.18007466516247253,
+            "meanResidualY": -0.001995019763600213
+          },
+          "trained_shrinkage": {
+            "samples": 10152,
+            "plays": 81,
+            "players": 16,
+            "meanErrorYards": 0.4931284937767938,
+            "rmseYards": 0.5454408129271879,
+            "medianErrorYards": 0.4826923571929615,
+            "p90ErrorYards": 0.8116874439326084,
+            "meanResidualX": -0.18007466516247253,
+            "meanResidualY": -0.001995019763600213
+          }
+        },
+        "rush": {
+          "stationary": {
+            "samples": 8810,
+            "plays": 81,
+            "players": 24,
+            "meanErrorYards": 1.4387647574071454,
+            "rmseYards": 1.578843550831516,
+            "medianErrorYards": 1.4027829410399648,
+            "p90ErrorYards": 2.330343322345442,
+            "meanResidualX": 1.0187082860385925,
+            "meanResidualY": -0.042879682179341655
+          },
+          "constant_velocity": {
+            "samples": 8810,
+            "plays": 81,
+            "players": 24,
+            "meanErrorYards": 0.4354981758558643,
+            "rmseYards": 0.482973040168527,
+            "medianErrorYards": 0.4214581185082298,
+            "p90ErrorYards": 0.7146693357954557,
+            "meanResidualX": 0.05942764867166818,
+            "meanResidualY": -0.002295572268035688
+          },
+          "trained_shrinkage": {
+            "samples": 8810,
+            "plays": 81,
+            "players": 24,
+            "meanErrorYards": 0.4354981758558643,
+            "rmseYards": 0.482973040168527,
+            "medianErrorYards": 0.4214581185082298,
+            "p90ErrorYards": 0.7146693357954557,
+            "meanResidualX": 0.05942764867166818,
+            "meanResidualY": -0.002295572268035688
+          }
+        }
+      },
+      "byQuality": {
+        "cohortEligible": {
+          "stationary": {
+            "samples": 40414,
+            "plays": 72,
+            "players": 64,
+            "meanErrorYards": 1.4726576978907489,
+            "rmseYards": 1.7296759125079157,
+            "medianErrorYards": 1.3081666560495988,
+            "p90ErrorYards": 2.7756260555053096,
+            "meanResidualX": -0.28255926164200523,
+            "meanResidualY": -0.035352600583956055
+          },
+          "constant_velocity": {
+            "samples": 40414,
+            "plays": 72,
+            "players": 64,
+            "meanErrorYards": 0.3916386423261988,
+            "rmseYards": 0.44279223034009224,
+            "medianErrorYards": 0.3667881950051035,
+            "p90ErrorYards": 0.6796083372728436,
+            "meanResidualX": -0.048733682178405645,
+            "meanResidualY": -0.00527361995704659
+          },
+          "trained_shrinkage": {
+            "samples": 40414,
+            "plays": 72,
+            "players": 64,
+            "meanErrorYards": 0.3916386423261988,
+            "rmseYards": 0.44279223034009224,
+            "medianErrorYards": 0.3667881950051035,
+            "p90ErrorYards": 0.6796083372728436,
+            "meanResidualX": -0.048733682178405645,
+            "meanResidualY": -0.00527361995704659
+          }
+        },
+        "diagnosticFlagged": {
+          "stationary": {
+            "samples": 6622,
+            "plays": 9,
+            "players": 57,
+            "meanErrorYards": 1.4480740232900842,
+            "rmseYards": 1.705224755812116,
+            "medianErrorYards": 1.265009879994982,
+            "p90ErrorYards": 2.783469058567026,
+            "meanResidualX": -0.27735578375113257,
+            "meanResidualY": 0.12119601328903655
+          },
+          "constant_velocity": {
+            "samples": 6622,
+            "plays": 9,
+            "players": 57,
+            "meanErrorYards": 0.41191634325399884,
+            "rmseYards": 0.46805303680057947,
+            "medianErrorYards": 0.3837197081118402,
+            "p90ErrorYards": 0.7216577877467406,
+            "meanResidualX": -0.03452788369359194,
+            "meanResidualY": 0.01625312541510908
+          },
+          "trained_shrinkage": {
+            "samples": 6622,
+            "plays": 9,
+            "players": 57,
+            "meanErrorYards": 0.41191634325399884,
+            "rmseYards": 0.46805303680057947,
+            "medianErrorYards": 0.3837197081118402,
+            "p90ErrorYards": 0.7216577877467406,
+            "meanResidualX": -0.03452788369359194,
+            "meanResidualY": 0.01625312541510908
+          }
+        }
+      }
+    },
+    {
+      "heldOutGameId": 2021110100,
+      "trainingGameIds": [
+        2021090900,
+        2021091200,
+        2021091201
+      ],
+      "testGameIds": [
+        2021110100
+      ],
+      "testPlays": [
+        "2021110100_1037",
+        "2021110100_1083",
+        "2021110100_1160",
+        "2021110100_1182",
+        "2021110100_1267",
+        "2021110100_1301",
+        "2021110100_1351",
+        "2021110100_1396",
+        "2021110100_1458",
+        "2021110100_1480",
+        "2021110100_159",
+        "2021110100_1664",
+        "2021110100_1736",
+        "2021110100_183",
+        "2021110100_1833",
+        "2021110100_1896",
+        "2021110100_1920",
+        "2021110100_1942",
+        "2021110100_1970",
+        "2021110100_2032",
+        "2021110100_2096",
+        "2021110100_2120",
+        "2021110100_2165",
+        "2021110100_2226",
+        "2021110100_241",
+        "2021110100_2569",
+        "2021110100_2593",
+        "2021110100_2643",
+        "2021110100_265",
+        "2021110100_2688",
+        "2021110100_2712",
+        "2021110100_2761",
+        "2021110100_2783",
+        "2021110100_2881",
+        "2021110100_2954",
+        "2021110100_2976",
+        "2021110100_3016",
+        "2021110100_3089",
+        "2021110100_3150",
+        "2021110100_3195",
+        "2021110100_3260",
+        "2021110100_3362",
+        "2021110100_3392",
+        "2021110100_3421",
+        "2021110100_3471",
+        "2021110100_3529",
+        "2021110100_3572",
+        "2021110100_3617",
+        "2021110100_3674",
+        "2021110100_3796",
+        "2021110100_3831",
+        "2021110100_3876",
+        "2021110100_3909",
+        "2021110100_393",
+        "2021110100_3955",
+        "2021110100_4016",
+        "2021110100_4049",
+        "2021110100_4071",
+        "2021110100_4113",
+        "2021110100_4310",
+        "2021110100_4363",
+        "2021110100_4392",
+        "2021110100_441",
+        "2021110100_4411",
+        "2021110100_4433",
+        "2021110100_531",
+        "2021110100_587",
+        "2021110100_724",
+        "2021110100_753",
+        "2021110100_775",
+        "2021110100_79",
+        "2021110100_797",
+        "2021110100_847",
+        "2021110100_917"
+      ],
+      "fit": {
+        "scale": 1.0,
+        "unconstrainedScale": 1.0393391306291573,
+        "identifiable": true,
+        "trainingGameIds": [
+          2021090900,
+          2021091200,
+          2021091201
+        ],
+        "heldOutGameIds": [
+          2021110100
+        ],
+        "trainingSamples": 138952,
+        "trainingPlays": 247,
+        "fitWeighting": "Equal weight per observed player-frame; no held-out observations enter fitting."
+      },
+      "models": {
+        "stationary": {
+          "samples": 49390,
+          "plays": 74,
+          "players": 74,
+          "meanErrorYards": 1.5257296744657862,
+          "rmseYards": 1.8111653522483406,
+          "medianErrorYards": 1.3324038426843434,
+          "p90ErrorYards": 2.971279185805334,
+          "meanResidualX": -0.3005592225146791,
+          "meanResidualY": 0.0751704798542215
+        },
+        "constant_velocity": {
+          "samples": 49390,
+          "plays": 74,
+          "players": 74,
+          "meanErrorYards": 0.3900799616636349,
+          "rmseYards": 0.44278298910233316,
+          "medianErrorYards": 0.36400307627153805,
+          "p90ErrorYards": 0.68122699922502,
+          "meanResidualX": -0.037699718930258794,
+          "meanResidualY": 0.011006793456908848
+        },
+        "trained_shrinkage": {
+          "samples": 49390,
+          "plays": 74,
+          "players": 74,
+          "meanErrorYards": 0.3900799616636349,
+          "rmseYards": 0.44278298910233316,
+          "medianErrorYards": 0.36400307627153805,
+          "p90ErrorYards": 0.68122699922502,
+          "meanResidualX": -0.037699718930258794,
+          "meanResidualY": 0.011006793456908848
+        }
+      },
+      "byRole": {
+        "block": {
+          "stationary": {
+            "samples": 12133,
+            "plays": 74,
+            "players": 21,
+            "meanErrorYards": 1.0140832927552208,
+            "rmseYards": 1.1504603624541678,
+            "medianErrorYards": 0.9590099061010767,
+            "p90ErrorYards": 1.7281782315490504,
+            "meanResidualX": 0.515585593010797,
+            "meanResidualY": 0.1049905217176296
+          },
+          "constant_velocity": {
+            "samples": 12133,
+            "plays": 74,
+            "players": 21,
+            "meanErrorYards": 0.3170319844572675,
+            "rmseYards": 0.35611021026690637,
+            "medianErrorYards": 0.299542484534502,
+            "p90ErrorYards": 0.5319386498577732,
+            "meanResidualX": 0.04289147894583512,
+            "meanResidualY": 0.01372028670456124
+          },
+          "trained_shrinkage": {
+            "samples": 12133,
+            "plays": 74,
+            "players": 21,
+            "meanErrorYards": 0.3170319844572675,
+            "rmseYards": 0.35611021026690637,
+            "medianErrorYards": 0.299542484534502,
+            "p90ErrorYards": 0.5319386498577732,
+            "meanResidualX": 0.04289147894583512,
+            "meanResidualY": 0.01372028670456124
+          }
+        },
+        "coverage": {
+          "stationary": {
+            "samples": 15852,
+            "plays": 74,
+            "players": 28,
+            "meanErrorYards": 1.508411468436907,
+            "rmseYards": 1.7678704412506283,
+            "medianErrorYards": 1.422796541049122,
+            "p90ErrorYards": 2.768772291106656,
+            "meanResidualX": -0.8296555639666919,
+            "meanResidualY": 0.06838380015140044
+          },
+          "constant_velocity": {
+            "samples": 15852,
+            "plays": 74,
+            "players": 28,
+            "meanErrorYards": 0.3715036224212172,
+            "rmseYards": 0.4261874400530258,
+            "medianErrorYards": 0.3410223596329448,
+            "p90ErrorYards": 0.660782059400838,
+            "meanResidualX": -0.07920828424197499,
+            "meanResidualY": 0.013425355000536224
+          },
+          "trained_shrinkage": {
+            "samples": 15852,
+            "plays": 74,
+            "players": 28,
+            "meanErrorYards": 0.3715036224212172,
+            "rmseYards": 0.4261874400530258,
+            "medianErrorYards": 0.3410223596329448,
+            "p90ErrorYards": 0.660782059400838,
+            "meanResidualX": -0.07920828424197499,
+            "meanResidualY": 0.013425355000536224
+          }
+        },
+        "pass": {
+          "stationary": {
+            "samples": 2245,
+            "plays": 74,
+            "players": 2,
+            "meanErrorYards": 1.304918101161,
+            "rmseYards": 1.6249872502497942,
+            "medianErrorYards": 1.0606601717798259,
+            "p90ErrorYards": 2.7940293484500134,
+            "meanResidualX": 0.40591982182628067,
+            "meanResidualY": 0.07948329621380848
+          },
+          "constant_velocity": {
+            "samples": 2245,
+            "plays": 74,
+            "players": 2,
+            "meanErrorYards": 0.3948801830604931,
+            "rmseYards": 0.4418095207595587,
+            "medianErrorYards": 0.38602972514104883,
+            "p90ErrorYards": 0.6579570837444386,
+            "meanResidualX": -0.025549794701521876,
+            "meanResidualY": 0.023926843454008785
+          },
+          "trained_shrinkage": {
+            "samples": 2245,
+            "plays": 74,
+            "players": 2,
+            "meanErrorYards": 0.3948801830604931,
+            "rmseYards": 0.4418095207595587,
+            "medianErrorYards": 0.38602972514104883,
+            "p90ErrorYards": 0.6579570837444386,
+            "meanResidualX": -0.025549794701521876,
+            "meanResidualY": 0.023926843454008785
+          }
+        },
+        "route": {
+          "stationary": {
+            "samples": 10317,
+            "plays": 74,
+            "players": 23,
+            "meanErrorYards": 2.3053721236562326,
+            "rmseYards": 2.5687428590524446,
+            "medianErrorYards": 2.380189068120431,
+            "p90ErrorYards": 3.771962354000901,
+            "meanResidualX": -1.5624813414752352,
+            "meanResidualY": 0.009686924493554324
+          },
+          "constant_velocity": {
+            "samples": 10317,
+            "plays": 74,
+            "players": 23,
+            "meanErrorYards": 0.4812901995869128,
+            "rmseYards": 0.531695163409946,
+            "medianErrorYards": 0.4667312901217627,
+            "p90ErrorYards": 0.7924292568637415,
+            "meanResidualX": -0.13801179224161186,
+            "meanResidualY": -0.0029348242747513856
+          },
+          "trained_shrinkage": {
+            "samples": 10317,
+            "plays": 74,
+            "players": 23,
+            "meanErrorYards": 0.4812901995869128,
+            "rmseYards": 0.531695163409946,
+            "medianErrorYards": 0.4667312901217627,
+            "p90ErrorYards": 0.7924292568637415,
+            "meanResidualX": -0.13801179224161186,
+            "meanResidualY": -0.0029348242747513856
+          }
+        },
+        "rush": {
+          "stationary": {
+            "samples": 8843,
+            "plays": 74,
+            "players": 23,
+            "meanErrorYards": 1.4052371476123995,
+            "rmseYards": 1.591874975983013,
+            "medianErrorYards": 1.317952958189323,
+            "p90ErrorYards": 2.416153968603823,
+            "meanResidualX": 0.8210234083455841,
+            "meanResidualY": 0.1217256587131064
+          },
+          "constant_velocity": {
+            "samples": 8843,
+            "plays": 74,
+            "players": 23,
+            "meanErrorYards": 0.4159728391288906,
+            "rmseYards": 0.46480652218440754,
+            "medianErrorYards": 0.40219357455494426,
+            "p90ErrorYards": 0.6947814213569288,
+            "meanResidualX": 0.04008201282936946,
+            "meanResidualY": 0.015933662927756033
+          },
+          "trained_shrinkage": {
+            "samples": 8843,
+            "plays": 74,
+            "players": 23,
+            "meanErrorYards": 0.4159728391288906,
+            "rmseYards": 0.46480652218440754,
+            "medianErrorYards": 0.40219357455494426,
+            "p90ErrorYards": 0.6947814213569288,
+            "meanResidualX": 0.04008201282936946,
+            "meanResidualY": 0.015933662927756033
+          }
+        }
+      },
+      "byQuality": {
+        "cohortEligible": {
+          "stationary": {
+            "samples": 44726,
+            "plays": 68,
+            "players": 74,
+            "meanErrorYards": 1.5077278892259138,
+            "rmseYards": 1.79252095974835,
+            "medianErrorYards": 1.3138112497615455,
+            "p90ErrorYards": 2.9463536787018647,
+            "meanResidualX": -0.2921785985780084,
+            "meanResidualY": 0.07984706881903143
+          },
+          "constant_velocity": {
+            "samples": 44726,
+            "plays": 68,
+            "players": 74,
+            "meanErrorYards": 0.390167920548313,
+            "rmseYards": 0.4426906396575557,
+            "medianErrorYards": 0.3650614476918618,
+            "p90ErrorYards": 0.6803533262200377,
+            "meanResidualX": -0.03623390235915111,
+            "meanResidualY": 0.011228144162225905
+          },
+          "trained_shrinkage": {
+            "samples": 44726,
+            "plays": 68,
+            "players": 74,
+            "meanErrorYards": 0.390167920548313,
+            "rmseYards": 0.4426906396575557,
+            "medianErrorYards": 0.3650614476918618,
+            "p90ErrorYards": 0.6803533262200377,
+            "meanResidualX": -0.03623390235915111,
+            "meanResidualY": 0.011228144162225905
+          }
+        },
+        "diagnosticFlagged": {
+          "stationary": {
+            "samples": 4664,
+            "plays": 6,
+            "players": 54,
+            "meanErrorYards": 1.698360001789659,
+            "rmseYards": 1.9810685745969459,
+            "medianErrorYards": 1.5388307249337094,
+            "p90ErrorYards": 3.2230730677414066,
+            "meanResidualX": -0.38092624356775295,
+            "meanResidualY": 0.03032375643224695
+          },
+          "constant_velocity": {
+            "samples": 4664,
+            "plays": 6,
+            "players": 54,
+            "meanErrorYards": 0.389236469151604,
+            "rmseYards": 0.4436676094006641,
+            "medianErrorYards": 0.35349532225148217,
+            "p90ErrorYards": 0.6877393662139192,
+            "meanResidualX": -0.05175634670885281,
+            "meanResidualY": 0.008884123721486304
+          },
+          "trained_shrinkage": {
+            "samples": 4664,
+            "plays": 6,
+            "players": 54,
+            "meanErrorYards": 0.389236469151604,
+            "rmseYards": 0.4436676094006641,
+            "medianErrorYards": 0.35349532225148217,
+            "p90ErrorYards": 0.6877393662139192,
+            "meanResidualX": -0.05175634670885281,
+            "meanResidualY": 0.008884123721486304
+          }
+        }
+      }
+    }
+  ],
+  "gameIds": [
+    2021090900,
+    2021091200,
+    2021091201,
+    2021110100
+  ],
+  "roles": [
+    "block",
+    "coverage",
+    "pass",
+    "route",
+    "rush"
+  ],
+  "models": [
+    "stationary",
+    "constant_velocity",
+    "trained_shrinkage"
+  ],
+  "macroByGame": {
+    "stationary": {
+      "equalGameMeanErrorYards": 1.481874024914528,
+      "equalGameRMSEYards": 1.7473606331608922,
+      "gameCount": 4,
+      "observationCount": 188342
+    },
+    "constant_velocity": {
+      "equalGameMeanErrorYards": 0.38875166686353924,
+      "equalGameRMSEYards": 0.4415955328258062,
+      "gameCount": 4,
+      "observationCount": 188342
+    },
+    "trained_shrinkage": {
+      "equalGameMeanErrorYards": 0.38875166686353924,
+      "equalGameRMSEYards": 0.4415955328258062,
+      "gameCount": 4,
+      "observationCount": 188342
+    }
+  },
+  "sampleCount": 188342,
+  "playCount": 321,
+  "splitGuarantee": "One entire game is held out per fold. No frame, player track, or play from that game enters coefficient fitting.",
+  "uncertaintyPolicy": "No frame-independent confidence intervals or significance tests. Adjacent and same-play observations are correlated; game-level results are the reporting units.",
+  "status": "experimental_evaluation_complete",
+  "version": "experimental-motion-baselines-1.0.0",
+  "horizonSeconds": 0.5,
+  "featureContract": [
+    "current_x",
+    "current_y",
+    "current_speed",
+    "current_movement_direction"
+  ],
+  "targetContract": "Observed x/y exactly one horizon later, no later than first pass_forward or recorded endpoint.",
+  "trainingObjective": "Global scalar alpha in [0,1] minimizing squared two-dimensional displacement error on training games only.",
+  "sources": [
+    {
+      "file": "data/demo.json",
+      "sha256": "96f2813a4504be7fdf38a57c5dce25f5e1e14964062ced0b4642e3013c0bd722",
+      "sourceRevision": "85da22eeff2f1d5be106faa9dfe06a1205f2defd",
+      "season": 2021,
+      "gameIds": [
+        2021090900,
+        2021110100
+      ],
+      "playCount": 169
+    },
+    {
+      "file": "data/packs/week-1-additional/demo.json",
+      "sha256": "ebdd547ff3c595f3281b56079b1574e564e7b393ec336a3de18c51f5df7190f3",
+      "sourceRevision": "85da22eeff2f1d5be106faa9dfe06a1205f2defd",
+      "season": 2021,
+      "gameIds": [
+        2021091200,
+        2021091201
+      ],
+      "playCount": 152
+    }
+  ],
+  "excludedSamples": {
+    "insufficient_horizon": 35310
+  },
+  "engineSha256": "819ebc5f76c012ac8fadb1e7a554363cc5ffe59fdc5953bf0e06190c2db68513",
+  "deployment": "Research-only report. No projection, learned parameter, catch probability, or time-to-reach model is enabled in the coaching app.",
+  "limitations": [
+    "The four-game cohort is small and not a representative season sample.",
+    "Overlapping observations are correlated; training uses per-observation weighting, while headline error averages games equally.",
+    "A lower trajectory error does not validate causal route attribution, catchability, coverage responsibility, or coaching decisions.",
+    "The same source season supplies training and held-out games; these results do not establish generalization to another season or tracking provider.",
+    "Release/endpoint availability limits the evaluated horizons; no unobserved future target is fabricated."
+  ]
+}

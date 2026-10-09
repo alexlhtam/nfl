@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.png -text
+*.jpg -text
+*.zip -text
+*.webm -text
+*.pptx -text

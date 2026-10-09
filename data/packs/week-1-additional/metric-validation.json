@@ -1,0 +1,911 @@
+{
+  "status": "passed",
+  "metricVersion": "2.0.0",
+  "sourceRevision": "85da22eeff2f1d5be106faa9dfe06a1205f2defd",
+  "sourceSeason": 2021,
+  "options": {
+    "scope": "coverage",
+    "threshold": 3.0,
+    "lookback": 0.5,
+    "minDuration": 0.2,
+    "downfieldOnly": true,
+    "inBoundsOnly": true,
+    "fieldWidth": 53.3,
+    "fieldLength": 120.0,
+    "maxGap": 0.15
+  },
+  "counts": {
+    "plays": 152,
+    "receiverSeries": 716,
+    "validDecompositions": 18936,
+    "eligibleDecompositions": 10057,
+    "openingEvents": 108,
+    "positiveCapturedEvents": 62,
+    "cohortEligibleEvents": 85,
+    "cohortEligiblePlays": 137
+  },
+  "maxAdditivityError": 8.881784197001252e-16,
+  "maxCaptureBoundError": 0.0,
+  "curatedClaims": [],
+  "allocationChecks": [
+    {
+      "playId": "2021091200_122",
+      "receiverId": "46095",
+      "frame": 20,
+      "residual": 1.1102230246251565e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_303",
+      "receiverId": "46263",
+      "frame": 21,
+      "residual": 1.1102230246251565e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_843",
+      "receiverId": "46094",
+      "frame": 52,
+      "residual": 5.551115123125783e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_1206",
+      "receiverId": "53439",
+      "frame": 22,
+      "residual": 1.249000902703301e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_1792",
+      "receiverId": "39983",
+      "frame": 26,
+      "residual": -1.3322676295501878e-15,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_1792",
+      "receiverId": "52608",
+      "frame": 38,
+      "residual": 6.661338147750939e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_1792",
+      "receiverId": "53439",
+      "frame": 46,
+      "residual": -3.3306690738754696e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_1991",
+      "receiverId": "39983",
+      "frame": 18,
+      "residual": -2.220446049250313e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_2063",
+      "receiverId": "53439",
+      "frame": 31,
+      "residual": -1.7763568394002505e-15,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_2145",
+      "receiverId": "52429",
+      "frame": 42,
+      "residual": 2.220446049250313e-16,
+      "coalitions": 64,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_2214",
+      "receiverId": "46118",
+      "frame": 29,
+      "residual": 2.498001805406602e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_2275",
+      "receiverId": "45607",
+      "frame": 31,
+      "residual": -7.771561172376096e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_2321",
+      "receiverId": "46118",
+      "frame": 16,
+      "residual": 1.6653345369377348e-15,
+      "coalitions": 256,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_2767",
+      "receiverId": "53439",
+      "frame": 20,
+      "residual": 8.326672684688674e-17,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_3045",
+      "receiverId": "46094",
+      "frame": 20,
+      "residual": 0.0,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_3145",
+      "receiverId": "46095",
+      "frame": 25,
+      "residual": 0.0,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_3383",
+      "receiverId": "53433",
+      "frame": 23,
+      "residual": 1.1102230246251565e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_3480",
+      "receiverId": "46094",
+      "frame": 20,
+      "residual": -1.1102230246251565e-15,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_3502",
+      "receiverId": "46095",
+      "frame": 24,
+      "residual": -5.551115123125783e-17,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_3599",
+      "receiverId": "53439",
+      "frame": 24,
+      "residual": 1.1102230246251565e-16,
+      "coalitions": 64,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_3776",
+      "receiverId": "46263",
+      "frame": 18,
+      "residual": 5.551115123125783e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_4041",
+      "receiverId": "46094",
+      "frame": 20,
+      "residual": 6.661338147750939e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_4112",
+      "receiverId": "46095",
+      "frame": 23,
+      "residual": 5.551115123125783e-17,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_4112",
+      "receiverId": "46263",
+      "frame": 41,
+      "residual": 4.440892098500626e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_4131",
+      "receiverId": "45607",
+      "frame": 22,
+      "residual": 1.3322676295501878e-15,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_4131",
+      "receiverId": "52429",
+      "frame": 35,
+      "residual": 0.0,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_4131",
+      "receiverId": "53439",
+      "frame": 32,
+      "residual": 2.220446049250313e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_4298",
+      "receiverId": "46263",
+      "frame": 29,
+      "residual": -4.440892098500626e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091200_4298",
+      "receiverId": "53433",
+      "frame": 21,
+      "residual": 0.0,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_500",
+      "receiverId": "35521",
+      "frame": 17,
+      "residual": 1.5543122344752192e-15,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_500",
+      "receiverId": "47879",
+      "frame": 16,
+      "residual": -1.1102230246251565e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_589",
+      "receiverId": "38947",
+      "frame": 39,
+      "residual": 0.0,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_589",
+      "receiverId": "42489",
+      "frame": 44,
+      "residual": -1.1102230246251565e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_639",
+      "receiverId": "52457",
+      "frame": 15,
+      "residual": 3.3306690738754696e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_762",
+      "receiverId": "35521",
+      "frame": 19,
+      "residual": 1.6653345369377348e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_762",
+      "receiverId": "38947",
+      "frame": 24,
+      "residual": -8.881784197001252e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_901",
+      "receiverId": "44874",
+      "frame": 17,
+      "residual": 0.0,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_901",
+      "receiverId": "53484",
+      "frame": 14,
+      "residual": 1.1102230246251565e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_1367",
+      "receiverId": "38947",
+      "frame": 26,
+      "residual": 0.0,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_1393",
+      "receiverId": "52536",
+      "frame": 25,
+      "residual": 5.551115123125783e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_1422",
+      "receiverId": "47924",
+      "frame": 21,
+      "residual": 2.220446049250313e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_1422",
+      "receiverId": "52457",
+      "frame": 19,
+      "residual": 0.0,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_1572",
+      "receiverId": "35521",
+      "frame": 30,
+      "residual": -2.220446049250313e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_1808",
+      "receiverId": "44985",
+      "frame": 20,
+      "residual": -4.440892098500626e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_1870",
+      "receiverId": "35521",
+      "frame": 22,
+      "residual": -1.1102230246251565e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_2209",
+      "receiverId": "52457",
+      "frame": 23,
+      "residual": -4.440892098500626e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_2483",
+      "receiverId": "52536",
+      "frame": 15,
+      "residual": 1.1102230246251565e-15,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_2547",
+      "receiverId": "52536",
+      "frame": 17,
+      "residual": -4.440892098500626e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_2590",
+      "receiverId": "42489",
+      "frame": 27,
+      "residual": 2.220446049250313e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_2828",
+      "receiverId": "44874",
+      "frame": 31,
+      "residual": -2.220446049250313e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_2936",
+      "receiverId": "35521",
+      "frame": 20,
+      "residual": 2.220446049250313e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_3004",
+      "receiverId": "35521",
+      "frame": 28,
+      "residual": 4.440892098500626e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_3312",
+      "receiverId": "52536",
+      "frame": 15,
+      "residual": -4.440892098500626e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_3655",
+      "receiverId": "44874",
+      "frame": 26,
+      "residual": 1.6653345369377348e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_3756",
+      "receiverId": "47924",
+      "frame": 25,
+      "residual": -4.163336342344337e-17,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_4033",
+      "receiverId": "42489",
+      "frame": 23,
+      "residual": 1.1102230246251565e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_4103",
+      "receiverId": "47879",
+      "frame": 20,
+      "residual": -4.440892098500626e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_4180",
+      "receiverId": "52536",
+      "frame": 24,
+      "residual": 0.0,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_4209",
+      "receiverId": "52536",
+      "frame": 22,
+      "residual": 0.0,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_4233",
+      "receiverId": "52536",
+      "frame": 25,
+      "residual": 2.220446049250313e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_4266",
+      "receiverId": "35521",
+      "frame": 17,
+      "residual": -4.440892098500626e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    },
+    {
+      "playId": "2021091201_4266",
+      "receiverId": "38947",
+      "frame": 17,
+      "residual": -6.661338147750939e-16,
+      "coalitions": 128,
+      "associationBudgetError": 0.0
+    }
+  ],
+  "exampleEvents": [
+    {
+      "playId": "2021091201_901",
+      "receiverId": "44874",
+      "receiverName": "JuJu Smith-Schuster",
+      "onset": 1.7,
+      "confirmedAt": 1.9,
+      "coverage": 1.661798962352012,
+      "receiver": 0.4951634847638675,
+      "gain": 2.1569624471158795,
+      "captured": 1.661798962352012,
+      "duration": 0.5999999999999999,
+      "rightCensored": true,
+      "offense": "PIT",
+      "coverageScheme": "Cover-6"
+    },
+    {
+      "playId": "2021091200_1792",
+      "receiverId": "39983",
+      "receiverName": "Zach Ertz",
+      "onset": 2.6,
+      "confirmedAt": 2.8,
+      "coverage": 1.6259006641419398,
+      "receiver": 0.01382066844335339,
+      "gain": 1.6397213325852933,
+      "captured": 1.6259006641419398,
+      "duration": 2.3000000000000003,
+      "rightCensored": true,
+      "offense": "PHI",
+      "coverageScheme": "Cover-3"
+    },
+    {
+      "playId": "2021091201_2483",
+      "receiverId": "52536",
+      "receiverName": "Gabe Davis",
+      "onset": 1.5,
+      "confirmedAt": 1.7,
+      "coverage": 1.6101399383292514,
+      "receiver": -0.17567335590910516,
+      "gain": 1.4344665824201461,
+      "captured": 1.4344665824201461,
+      "duration": 0.7999999999999998,
+      "rightCensored": false,
+      "offense": "BUF",
+      "coverageScheme": "Cover-3"
+    },
+    {
+      "playId": "2021091200_1991",
+      "receiverId": "39983",
+      "receiverName": "Zach Ertz",
+      "onset": 1.8,
+      "confirmedAt": 2.0,
+      "coverage": 1.4266186253780728,
+      "receiver": 0.12176676199852376,
+      "gain": 1.5483853873765965,
+      "captured": 1.4266186253780728,
+      "duration": 0.9000000000000001,
+      "rightCensored": true,
+      "offense": "PHI",
+      "coverageScheme": "Cover-2"
+    },
+    {
+      "playId": "2021091201_3312",
+      "receiverId": "52536",
+      "receiverName": "Gabe Davis",
+      "onset": 1.5,
+      "confirmedAt": 1.7,
+      "coverage": 1.3897055553316977,
+      "receiver": 0.12799068676083591,
+      "gain": 1.5176962420925337,
+      "captured": 1.3897055553316977,
+      "duration": 0.6000000000000001,
+      "rightCensored": true,
+      "offense": "BUF",
+      "coverageScheme": "Cover-3"
+    },
+    {
+      "playId": "2021091201_2936",
+      "receiverId": "35521",
+      "receiverName": "Emmanuel Sanders",
+      "onset": 2.0,
+      "confirmedAt": 2.2,
+      "coverage": 1.7067503623054543,
+      "receiver": -0.3182444530642241,
+      "gain": 1.3885059092412302,
+      "captured": 1.3885059092412302,
+      "duration": 0.6000000000000001,
+      "rightCensored": true,
+      "offense": "BUF",
+      "coverageScheme": "Cover-3"
+    },
+    {
+      "playId": "2021091201_4180",
+      "receiverId": "52536",
+      "receiverName": "Gabe Davis",
+      "onset": 2.4,
+      "confirmedAt": 2.6,
+      "coverage": 1.3876182543803317,
+      "receiver": 0.30578097914329205,
+      "gain": 1.6933992335236236,
+      "captured": 1.3876182543803317,
+      "duration": 0.30000000000000027,
+      "rightCensored": false,
+      "offense": "BUF",
+      "coverageScheme": "Cover-3"
+    },
+    {
+      "playId": "2021091201_762",
+      "receiverId": "38947",
+      "receiverName": "Cole Beasley",
+      "onset": 2.4,
+      "confirmedAt": 2.6,
+      "coverage": 1.5365153140321275,
+      "receiver": -0.22300715061773824,
+      "gain": 1.3135081634143893,
+      "captured": 1.3135081634143893,
+      "duration": 1.2000000000000002,
+      "rightCensored": true,
+      "offense": "BUF",
+      "coverageScheme": "Cover-2"
+    },
+    {
+      "playId": "2021091201_4209",
+      "receiverId": "52536",
+      "receiverName": "Gabe Davis",
+      "onset": 2.2,
+      "confirmedAt": 2.4,
+      "coverage": 1.3997842686320885,
+      "receiver": -0.09774207839093618,
+      "gain": 1.3020421902411523,
+      "captured": 1.3020421902411523,
+      "duration": 1.0,
+      "rightCensored": true,
+      "offense": "BUF",
+      "coverageScheme": "Cover-3"
+    },
+    {
+      "playId": "2021091201_2547",
+      "receiverId": "52536",
+      "receiverName": "Gabe Davis",
+      "onset": 1.7,
+      "confirmedAt": 1.9,
+      "coverage": 1.490577171804971,
+      "receiver": -0.1980930052028178,
+      "gain": 1.2924841666021532,
+      "captured": 1.2924841666021532,
+      "duration": 0.5999999999999999,
+      "rightCensored": true,
+      "offense": "BUF",
+      "coverageScheme": "Cover-2"
+    },
+    {
+      "playId": "2021091200_4298",
+      "receiverId": "46263",
+      "receiverName": "Russell Gage",
+      "onset": 2.9,
+      "confirmedAt": 3.1,
+      "coverage": 1.100380242763104,
+      "receiver": 1.501172096753531,
+      "gain": 2.6015523395166347,
+      "captured": 1.100380242763104,
+      "duration": 1.0,
+      "rightCensored": true,
+      "offense": "ATL",
+      "coverageScheme": "Quarters"
+    },
+    {
+      "playId": "2021091200_3480",
+      "receiverId": "46094",
+      "receiverName": "Hayden Hurst",
+      "onset": 2.0,
+      "confirmedAt": 2.2,
+      "coverage": 1.7627545788160606,
+      "receiver": -0.7298950746712976,
+      "gain": 1.032859504144763,
+      "captured": 1.032859504144763,
+      "duration": 0.6000000000000001,
+      "rightCensored": true,
+      "offense": "ATL",
+      "coverageScheme": "Quarters"
+    },
+    {
+      "playId": "2021091201_1393",
+      "receiverId": "52536",
+      "receiverName": "Gabe Davis",
+      "onset": 2.5,
+      "confirmedAt": 2.7,
+      "coverage": 0.9997134841924182,
+      "receiver": 0.7001836541208333,
+      "gain": 1.6998971383132515,
+      "captured": 0.9997134841924182,
+      "duration": 1.7999999999999998,
+      "rightCensored": true,
+      "offense": "BUF",
+      "coverageScheme": "Cover-3"
+    },
+    {
+      "playId": "2021091200_2321",
+      "receiverId": "46118",
+      "receiverName": "Dallas Goedert",
+      "onset": 1.6,
+      "confirmedAt": 1.8,
+      "coverage": 0.9772603860249244,
+      "receiver": 0.8075001236163303,
+      "gain": 1.7847605096412547,
+      "captured": 0.9772603860249244,
+      "duration": 0.2999999999999998,
+      "rightCensored": false,
+      "offense": "PHI",
+      "coverageScheme": "Miscellaneous"
+    },
+    {
+      "playId": "2021091200_2275",
+      "receiverId": "45607",
+      "receiverName": "Greg Ward",
+      "onset": 3.1,
+      "confirmedAt": 3.3,
+      "coverage": 0.9575023321806094,
+      "receiver": 0.9667502451348756,
+      "gain": 1.924252577315485,
+      "captured": 0.9575023321806094,
+      "duration": 0.5,
+      "rightCensored": true,
+      "offense": "PHI",
+      "coverageScheme": "Cover-3"
+    },
+    {
+      "playId": "2021091201_4103",
+      "receiverId": "47879",
+      "receiverName": "Dawson Knox",
+      "onset": 2.0,
+      "confirmedAt": 2.2,
+      "coverage": 1.7324441756351345,
+      "receiver": -0.7760554949993033,
+      "gain": 0.9563886806358313,
+      "captured": 0.9563886806358313,
+      "duration": 2.7,
+      "rightCensored": true,
+      "offense": "BUF",
+      "coverageScheme": "Cover-3"
+    },
+    {
+      "playId": "2021091200_4298",
+      "receiverId": "53433",
+      "receiverName": "Kyle Pitts",
+      "onset": 2.1,
+      "confirmedAt": 2.3,
+      "coverage": 1.3343007698499167,
+      "receiver": -0.38212777208966187,
+      "gain": 0.9521729977602549,
+      "captured": 0.9521729977602549,
+      "duration": 0.2999999999999998,
+      "rightCensored": false,
+      "offense": "ATL",
+      "coverageScheme": "Quarters"
+    },
+    {
+      "playId": "2021091200_2145",
+      "receiverId": "52429",
+      "receiverName": "Jalen Reagor",
+      "onset": 4.2,
+      "confirmedAt": 4.4,
+      "coverage": 0.8740373826411291,
+      "receiver": 0.28030224881159305,
+      "gain": 1.1543396314527221,
+      "captured": 0.8740373826411291,
+      "duration": 1.0,
+      "rightCensored": true,
+      "offense": "PHI",
+      "coverageScheme": "Cover-2"
+    },
+    {
+      "playId": "2021091201_639",
+      "receiverId": "52457",
+      "receiverName": "Chase Claypool",
+      "onset": 1.5,
+      "confirmedAt": 1.7,
+      "coverage": 0.7980157627214572,
+      "receiver": -0.04627745765715674,
+      "gain": 0.7517383050643005,
+      "captured": 0.7517383050643005,
+      "duration": 0.5,
+      "rightCensored": true,
+      "offense": "PIT",
+      "coverageScheme": "Cover-6"
+    },
+    {
+      "playId": "2021091200_3776",
+      "receiverId": "46263",
+      "receiverName": "Russell Gage",
+      "onset": 1.8,
+      "confirmedAt": 2.0,
+      "coverage": 0.7493600923972672,
+      "receiver": 0.17001380469091765,
+      "gain": 0.9193738970881848,
+      "captured": 0.7493600923972672,
+      "duration": 1.4000000000000001,
+      "rightCensored": true,
+      "offense": "ATL",
+      "coverageScheme": "Cover-3"
+    },
+    {
+      "playId": "2021091200_4041",
+      "receiverId": "46094",
+      "receiverName": "Hayden Hurst",
+      "onset": 2.0,
+      "confirmedAt": 2.2,
+      "coverage": 1.720084324343906,
+      "receiver": -1.0424679373059123,
+      "gain": 0.6776163870379937,
+      "captured": 0.6776163870379937,
+      "duration": 1.2000000000000002,
+      "rightCensored": true,
+      "offense": "ATL",
+      "coverageScheme": "Quarters"
+    },
+    {
+      "playId": "2021091201_901",
+      "receiverId": "53484",
+      "receiverName": "Pat Freiermuth",
+      "onset": 1.4,
+      "confirmedAt": 1.6,
+      "coverage": 0.6618612921257153,
+      "receiver": 0.7903215505101523,
+      "gain": 1.4521828426358676,
+      "captured": 0.6618612921257153,
+      "duration": 0.30000000000000004,
+      "rightCensored": false,
+      "offense": "PIT",
+      "coverageScheme": "Cover-6"
+    },
+    {
+      "playId": "2021091201_589",
+      "receiverId": "38947",
+      "receiverName": "Cole Beasley",
+      "onset": 3.9,
+      "confirmedAt": 4.1,
+      "coverage": 0.6045666436527393,
+      "receiver": 1.5258549601069529,
+      "gain": 2.130421603759692,
+      "captured": 0.6045666436527393,
+      "duration": 0.8999999999999999,
+      "rightCensored": true,
+      "offense": "BUF",
+      "coverageScheme": "Cover-2"
+    },
+    {
+      "playId": "2021091200_843",
+      "receiverId": "46094",
+      "receiverName": "Hayden Hurst",
+      "onset": 5.2,
+      "confirmedAt": 5.4,
+      "coverage": 0.5968495965625655,
+      "receiver": 1.4366009948506284,
+      "gain": 2.033450591413194,
+      "captured": 0.5968495965625655,
+      "duration": 0.5,
+      "rightCensored": true,
+      "offense": "ATL",
+      "coverageScheme": "Quarters"
+    },
+    {
+      "playId": "2021091200_1792",
+      "receiverId": "52608",
+      "receiverName": "Quez Watkins",
+      "onset": 3.8,
+      "confirmedAt": 4.0,
+      "coverage": 0.5879596763862927,
+      "receiver": 1.7784525263792852,
+      "gain": 2.3664122027655776,
+      "captured": 0.5879596763862927,
+      "duration": 1.1000000000000005,
+      "rightCensored": true,
+      "offense": "PHI",
+      "coverageScheme": "Cover-3"
+    }
+  ],
+  "failures": [],
+  "interpretation": "Coverage Lift is an exact geometric motion decomposition. Captured value is gated and capped observed space. Co-motion candidates are associations, with unassigned value. No result establishes route causation or calibrated passing opportunity.",
+  "validationScope": "Every bundled receiver series; every positive captured opening receives exact defender allocation and association-budget checks; all bundled curated numerical claims are executed.",
+  "datasetSha256": "ebdd547ff3c595f3281b56079b1574e564e7b393ec336a3de18c51f5df7190f3",
+  "engineSha256": "a6002b960e73f6a2cd157ddd9d5b298a25dc0a67b4c06c066a8241eedffabbff",
+  "javascriptEngineSha256": "24d8381c620326109b20489394fb0d07b192bfdcdf94d11aaf8b9fe515662169"
+}
