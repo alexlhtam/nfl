@@ -27,7 +27,7 @@ The [metric specification](docs/METRIC.md) gives the exact formula, parameter de
 
 ## Inspect the field and routes
 
-**Space now** is the distance from each field location to its nearest defender in the selected scope. Its fixed scale is 0–8+ yards. **Space change** holds the field location fixed and compares defensive positions over the lookback, on a −4 to +4-yard scale. Colour saturation caps the display only; calculations retain their full precision. A map is unavailable until the complete lookback exists.
+**Space now** is the distance from each field location to its nearest defender in the selected scope. Its fixed scale is 0–8+ yards. **Space change** holds the field location fixed and compares defensive positions over the lookback, on a −4 to +4-yard scale. Colour saturation caps the display only; calculations retain their full precision. The Space change map is unavailable until the complete lookback exists.
 
 Select **Coverage role** for charted coverage defenders or **All defenders** to include pass rushers. The included defender count remains visible. Player motion arrows use direction of travel, not eye gaze; body orientation is a separate source measurement.
 

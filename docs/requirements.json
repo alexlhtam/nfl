@@ -2,6 +2,12 @@
   "objective": "Implement every item in the 100-point improvement backlog",
   "updated": "2026-10-09",
   "scopeDecision": "No human reviewers now or in the future, explicitly directed by user. Requirements 94–95 are withdrawn as live participant studies; no fabricated results.",
+  "statusDefinitions": {
+    "implemented": "Feature is present with the listed implementation evidence; executed verification is identified separately by the cited checks.",
+    "verified": "Requirement-specific verification has been executed and its evidence is recorded.",
+    "implemented_pending_final_verification": "Implementation is present; the named final check has not yet passed.",
+    "withdrawn_by_user": "The user explicitly removed this item from active scope."
+  },
   "requirements": [
     {
       "id": 1,
@@ -147,9 +153,13 @@
     {
       "id": 17,
       "requirement": "Nearest-defender identity changes",
-      "status": "implemented",
+      "status": "verified",
       "evidence": [
-        "web/src/app.js:drawTimeline switch ticks and nearest-context identity-change text"
+        "web/src/app.js:drawTimeline switch ticks and nearest-context identity-change text",
+        "tests/analytical_browser.cjs: Bernard consecutive-observation badge and actual canvas tick regression"
+      ],
+      "assertions": [
+        "The badge and timeline mark consecutive-observation changes independently of the Coverage Lift lookback. Bernard changes nearest defender at 1.0 seconds, with no repeated change tick or badge at 1.1 seconds; the distinct lookback comparison remains true."
       ]
     },
     {
@@ -894,15 +904,16 @@
     {
       "id": 90,
       "requirement": "Reproducible versioned releases and native-resolution exports",
-      "status": "implemented_pending_final_verification",
+      "status": "verified",
       "evidence": [
         "tools/release.py",
         "web/src/workspace.js:renderEvidenceCanvas",
         "tests/workspace_browser.cjs",
-        "submission/qa/workspace-chromium.json"
+        "submission/qa/workspace-chromium.json",
+        "submission/qa/release-check.json"
       ],
       "assertions": [
-        "Release builder uses fixed ZIP timestamps and a per-file SHA-256 manifest; images and clips render directly at 2000 by 1500 pixels. Native export flows passed; final archive/checksum regeneration after normalization is pending."
+        "Release builder uses fixed ZIP timestamps and a per-file SHA-256 manifest; images and clips render directly at 2000 by 1500 pixels. Native export flows passed. Independent clean-commit verification produced byte-identical archives, verified every manifest checksum, regenerated identical offline HTML and passed all 91 packaged tests available without the two optional raw-CSV caches. Final delivery records its own commit and archive checksum."
       ]
     },
     {

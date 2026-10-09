@@ -827,7 +827,8 @@
       plot(receiver, 'distance', '#26775b');
       if (state.ui.chart === 'pair' && state.pairReceivers[key]) plot(state.pairReceivers[key], 'distance', '#9266b5');
     }
-    for (let index = 1; index <= last; index++) if (series(play, receiver)[index]?.nearestSwitch) {
+    // Timeline markers identify consecutive-frame changes, independent of the lift lookback.
+    for (let index = 1; index <= last; index++) if (M.nearest(play, receiver, index, options()).nearestSwitch) {
       ctx.strokeStyle = '#b68a55'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(X(play.times[index]), bottom - 4); ctx.lineTo(X(play.times[index]), bottom + 2); ctx.stroke();
     }
     ctx.fillStyle = '#718575'; ctx.textAlign = 'center';
@@ -880,7 +881,7 @@
     }
     $('.metric-equation', board.el).textContent = valid ? `${fmt(current.separationBefore)} → ${fmt(current.separationAfter)} yd separation · ${fmt(current.elapsed)} s window. The signed components sum to ${signed(current.gain)} yd.` : current.reason || `A full ${fmt(state.metricOptions.lookback)} s of eligible observed history is needed.`;
     const leverage = nearest.leverage ? `${nearest.leverage.inside ? 'Inside (closer to field center)' : 'Outside (farther from field center)'} · ${signed(nearest.leverage.downfield)} yd downfield relative to receiver` : 'Leverage unavailable';
-    $('.nearest-context', board.el).innerHTML = `<strong>${esc(name(play, nearest.nearestId))}</strong> · nearest ${fmt(nearest.distance)} yd<br>Second: ${esc(name(play, nearest.secondId))} · ${fmt(nearest.secondDistance)} yd<br>${nearest.within3 ?? '—'} within 3 yd · ${nearest.within5 ?? '—'} within 5 yd<br>Separation rate ${signed(nearest.separationRate)} yd/s (positive = widening)<br><span class="muted">${esc(leverage)}${current.nearestSwitch ? ' · Nearest defender changed' : ''}</span><br><span>First eligible opening: ${finite(stats.timeToFirst) ? `+${fmt(stats.timeToFirst)} s` : 'Not observed'} · ${fmt(stats.percentEligible)}% of ${fmt(stats.eligibleSeconds)} eligible seconds</span>${!state.ui.blind && finite(stats.releaseLead) ? `<br>First observed opening leads pass release by ${fmt(stats.releaseLead)} s` : ''}`;
+    $('.nearest-context', board.el).innerHTML = `<strong>${esc(name(play, nearest.nearestId))}</strong> · nearest ${fmt(nearest.distance)} yd<br>Second: ${esc(name(play, nearest.secondId))} · ${fmt(nearest.secondDistance)} yd<br>${nearest.within3 ?? '—'} within 3 yd · ${nearest.within5 ?? '—'} within 5 yd<br>Separation rate ${signed(nearest.separationRate)} yd/s (positive = widening)<br><span class="muted">${esc(leverage)}${current.instantNearestSwitch ? ' · Nearest defender changed' : ''}</span><br><span>First eligible opening: ${finite(stats.timeToFirst) ? `+${fmt(stats.timeToFirst)} s` : 'Not observed'} · ${fmt(stats.percentEligible)}% of ${fmt(stats.eligibleSeconds)} eligible seconds</span>${!state.ui.blind && finite(stats.releaseLead) ? `<br>First observed opening leads pass release by ${fmt(stats.releaseLead)} s` : ''}`;
     $('.current-sep', board.el).innerHTML = `${fmt(nearest.distance)} <small>yd</small>`;
     $('.longest-window', board.el).innerHTML = `${fmt(stats.longest)} <small>s</small>`;
     $('.total-window', board.el).innerHTML = `${fmt(stats.total)} <small>s</small>`;

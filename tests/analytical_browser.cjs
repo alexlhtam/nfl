@@ -22,14 +22,32 @@ const DEFAULTS={scope:'coverage',threshold:3,lookback:.5,minDuration:.2,downfiel
 (async()=>{
   const browser=await(firefox?playwright.firefox:playwright.chromium).launch({headless:true,...(!firefox&&process.env.OPEN_FIELD_BROWSER?{executablePath:process.env.OPEN_FIELD_BROWSER}:{})});
   const context=await browser.newContext({viewport:{width:1560,height:1100},deviceScaleFactor:1});
+  await context.addInitScript(()=>{
+    window.__completedOpenFieldPaints=0;
+    window.__lastOpenFieldPaintTab=null;
+    document.addEventListener('openfield:change',event=>{
+      if(event.detail?.reason==='frame'){
+        window.__completedOpenFieldPaints++;
+        window.__lastOpenFieldPaintTab=event.detail.snapshot.ui.tab;
+      }
+    });
+  });
   const page=await context.newPage(),errors=[],requests=[];
   page.on('pageerror',e=>errors.push(String(e)));
   page.on('request',r=>{if(/^https?:/.test(r.url()))requests.push(r.url());});
   try {
     await page.goto(pathToFileURL(path.join(OUT,'Open-Field.html')).href);
     await page.waitForFunction(()=>window.OpenFieldApp&&window.OpenFieldWorkspace&&window.OFMetrics);
+    async function renderedAction(tab,action){
+      const before=await page.evaluate(()=>window.__completedOpenFieldPaints);
+      await action();
+      // render() emits this event after its canvases, tables and events are updated.
+      // It is deferred for tab clicks, so waiting for the tab flag alone is insufficient.
+      await page.waitForFunction(({before,tab})=>window.__completedOpenFieldPaints>before&&window.__lastOpenFieldPaintTab===tab,{before,tab});
+    }
+    const selectTab=tab=>renderedAction(tab,()=>page.locator(`[data-tab="${tab}"]`).click());
     async function setup({id='2021110100_2120',receiver='44835',time=2.1,other=null,otherReceiver=null,ui={},metricOptions={},layers={},alignment='snap'}={}) {
-      await page.evaluate(config=>{
+      await renderedAction(ui.tab||'replay',()=>page.evaluate(config=>{
         const app=OpenFieldApp,s=app.getSnapshot();
         app.setSnapshot({...s,a:config.id,b:config.other,t:config.time,alignment:config.alignment,
           receivers:{a:config.receiver,b:config.otherReceiver},focusPlayers:{a:config.receiver,b:config.otherReceiver},pairReceivers:{a:null,b:null},
@@ -37,8 +55,7 @@ const DEFAULTS={scope:'coverage',threshold:3,lookback:.5,minDuration:.2,downfiel
           ui:{...s.ui,tab:'replay',blind:false,baseline:false,statsMode:'full',studyBoard:'a',chart:'separation',zoom:1,expanded:false,...config.ui},
           layers:{...s.layers,heat:true,ghosts:true,links:true,contours:false,lane:false,trail:'.65',...config.layers},
           point:null,region:null,preSnap:null,loop:{enabled:false,start:0,end:1}});
-      },{id,receiver,time,other,otherReceiver,ui,metricOptions,layers,alignment});
-      await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+      },{id,receiver,time,other,otherReceiver,ui,metricOptions,layers,alignment}));
     }
     async function check(name,fn) {
       try {await fn();checks.push(name);}
@@ -54,7 +71,7 @@ const DEFAULTS={scope:'coverage',threshold:3,lookback:.5,minDuration:.2,downfiel
     }
 
     await check('Engram four displayed distances and signed components match unrounded geometry',async()=>{
-      await setup();await page.locator('[data-tab="routes"]').click();
+      await setup();await selectTab('routes');
       const values=await page.locator('#fourDistances .four-grid strong').allTextContents();
       const expected=[2.4045373775427135,.7696752561957554,4.950474724710751,3.498942697444474];
       assert.equal(values.length,4);
@@ -77,10 +94,35 @@ const DEFAULTS={scope:'coverage',threshold:3,lookback:.5,minDuration:.2,downfiel
       close(actual.captured,0);close(actual.coverage,lift.coverage);
     });
 
+    await check('Nearest-change badges and actual chart ticks use adjacent observations, not lift lookback endpoints',async()=>{
+      const p=source('2021090900_97'),receiver='39985';
+      const before=M.nearest(p,receiver,M.frameAt(p,1.0),DEFAULTS),now=M.nearest(p,receiver,M.frameAt(p,1.1),DEFAULTS);
+      assert.equal(before.nearestId,'47996');assert.equal(now.nearestId,before.nearestId);
+      assert(M.coverageLift(p,receiver,M.frameAt(p,1.1),DEFAULTS).nearestSwitch,'Fixture must retain its different lookback endpoint defender');
+      await setup({id:p.id,receiver,time:1.0});
+      assert.match(await page.locator('[data-board="a"] .nearest-context').textContent(),/Nearest defender changed/);
+      await setup({id:p.id,receiver,time:1.1});
+      assert.doesNotMatch(await page.locator('[data-board="a"] .nearest-context').textContent(),/Nearest defender changed/);
+      const painted=await page.evaluate(()=>{
+        const app=OpenFieldApp,board=app.getBoards().a,ctx=board.timeline.getContext('2d'),ticks=[];
+        const saved={beginPath:ctx.beginPath,moveTo:ctx.moveTo,lineTo:ctx.lineTo,stroke:ctx.stroke};let path=[];
+        ctx.beginPath=function(){path=[];return saved.beginPath.call(this);};
+        ctx.moveTo=function(x,y){path.push([x,y]);return saved.moveTo.call(this,x,y);};
+        ctx.lineTo=function(x,y){path.push([x,y]);return saved.lineTo.call(this,x,y);};
+        ctx.stroke=function(){if(this.strokeStyle==='#b68a55'&&path.length===2&&path[0][0]===path[1][0])ticks.push(path[0][0]);return saved.stroke.call(this);};
+        try {app.render(true);} finally {Object.assign(ctx,saved);}
+        const axis=board.timelineTransform;
+        const pixel=time=>axis.left+(time-app.getTimeOffset('a'))/axis.duration*(axis.right-axis.left);
+        return {ticks,atSwitch:pixel(1.0),afterSwitch:pixel(1.1)};
+      });
+      assert(painted.ticks.some(x=>Math.abs(x-painted.atSwitch)<1e-6),'The actual nearest-defender change at 1.0s must be painted');
+      assert(!painted.ticks.some(x=>Math.abs(x-painted.afterSwitch)<1e-6),'No change tick may be painted at unchanged 1.1s');
+    });
+
     await check('Minimum hold changes real observed-so-far windows, table totals and timeline shading',async()=>{
       const p=source('2021090900_97'),r='41233';
       await setup({id:p.id,receiver:r,time:3,ui:{statsMode:'sofar'}});
-      await page.locator('[data-tab="routes"]').click();
+      await selectTab('routes');
       async function inspect(hold){
         await page.locator('#minDuration').selectOption(String(hold).replace(/^0\./,'.'));
         return page.evaluate(()=>({
@@ -153,7 +195,7 @@ const DEFAULTS={scope:'coverage',threshold:3,lookback:.5,minDuration:.2,downfiel
       for(const value of ['release','firstWindow','firstDownfield'])assert(await page.locator(`#alignment option[value="${value}"]`).evaluate(option=>option.disabled));
       const rows=await page.evaluate(()=>OpenFieldWorkspace.selectedRows());
       assert(rows.length);assert(rows.every(r=>r.time<=1.7+1e-9),'CSV cannot reveal future frames');
-      await page.locator('[data-tab="routes"]').click();
+      await selectTab('routes');
       const p=source('2021110100_2120'),expected=M.windows(p,'44835',{...DEFAULTS,throughTime:1.7});
       close(numeric(await page.locator('[data-board="a"] .total-window').textContent()),expected.total,.05001);
       const eventExpected=M.events(p,'44835',{...DEFAULTS,throughTime:1.7});
@@ -169,18 +211,36 @@ const DEFAULTS={scope:'coverage',threshold:3,lookback:.5,minDuration:.2,downfiel
 
     await check('Blind field, timelines and route table are invariant to unseen future coordinates',async()=>{
       await setup({time:1.7,ui:{blind:true},layers:{trail:'whole'}});
-      await page.locator('[data-tab="routes"]').click();
-      const invariant=await page.evaluate(()=>{
-        const app=OpenFieldApp,s=app.getSnapshot(),p=app.getPlay('a'),frame=app.getFrame('a');
-        const original=p.players.map(e=>structuredClone(e.track));
-        function capture(){return {field:app.getBoards().a.canvas.toDataURL(),timeline:app.getBoards().a.timeline.toDataURL(),routes:document.querySelector('#allRoutesTimeline').toDataURL(),table:document.querySelector('#allRoutesTable').innerText};}
-        const before=capture();
-        try {
-          for(const entity of p.players)for(let i=frame+1;i<entity.track.length;i++){entity.track[i][0]+=15+(i%3);entity.track[i][1]-=10;}
-          app.setSnapshot(s);const after=capture();return {same:Object.fromEntries(Object.keys(before).map(k=>[k,before[k]===after[k]]))};
-        }finally{p.players.forEach((e,i)=>e.track=original[i]);app.setSnapshot(s);}
+      await page.evaluate(()=>{
+        window.__futureInvariantFixture={snapshot:OpenFieldApp.getSnapshot(),tracks:OpenFieldApp.getPlay('a').players.map(e=>structuredClone(e.track))};
       });
-      assert.deepEqual(invariant.same,{field:true,timeline:true,routes:true,table:true});
+      async function capture(){
+        await selectTab('replay');
+        const visibleReplay=await page.evaluate(()=>{
+          const board=OpenFieldApp.getBoards().a;
+          return {field:board.canvas.toDataURL(),timeline:board.timeline.toDataURL(),fieldWidth:board.canvas.width,timelineWidth:board.timeline.width};
+        });
+        assert(visibleReplay.fieldWidth>100&&visibleReplay.timelineWidth>100,'Compare rendered visible canvases, not hidden 1-pixel placeholders');
+        await selectTab('routes');
+        const visibleRoutes=await page.evaluate(()=>({routes:document.querySelector('#allRoutesTimeline').toDataURL(),table:document.querySelector('#allRoutesTable').innerText}));
+        return {...visibleReplay,...visibleRoutes};
+      }
+      try {
+        const before=await capture();
+        await renderedAction('replay',()=>page.evaluate(()=>{
+          const app=OpenFieldApp,p=app.getPlay('a'),frame=app.getFrame('a');
+          for(const entity of p.players)for(let i=frame+1;i<entity.track.length;i++){entity.track[i][0]+=15+(i%3);entity.track[i][1]-=10;}
+          app.setSnapshot(window.__futureInvariantFixture.snapshot);
+        }));
+        const after=await capture();
+        assert.deepEqual(Object.fromEntries(['field','timeline','routes','table'].map(key=>[key,before[key]===after[key]])),{field:true,timeline:true,routes:true,table:true});
+      } finally {
+        await renderedAction('replay',()=>page.evaluate(()=>{
+          const app=OpenFieldApp,fixture=window.__futureInvariantFixture;
+          app.getPlay('a').players.forEach((entity,index)=>{entity.track=fixture.tracks[index];});
+          app.setSnapshot(fixture.snapshot);delete window.__futureInvariantFixture;
+        }));
+      }
     });
 
     await check('Ordinary replay hides analytical numbers and exports no metric values',async()=>{
@@ -193,7 +253,7 @@ const DEFAULTS={scope:'coverage',threshold:3,lookback:.5,minDuration:.2,downfiel
     });
 
     await check('Frame, receiver and scope changes invalidate computed diagnostics',async()=>{
-      await setup();await page.locator('[data-tab="routes"]').click();
+      await setup();await selectTab('routes');
       for(const change of ['frame','receiver','scope']){
         await page.locator('#analyzeContributions').evaluate(e=>{e.closest('details').open=true;});await page.locator('#analyzeContributions').click();
         await page.waitForSelector('#contributionResults .diagnostic-result');

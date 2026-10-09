@@ -39,10 +39,10 @@ python tools/validate_metric.py --data data/packs/week-1-additional/demo.json --
 
 ## Real-browser behavior
 
-The exported HTML was exercised in Microsoft Edge through Playwright at desktop and 390-pixel mobile widths. The app made no runtime HTTP requests and produced no JavaScript errors in these checks.
+The exported HTML passed 43 scenarios in Microsoft Edge through Playwright at desktop and 390-pixel mobile widths. The app made no runtime HTTP requests and produced no JavaScript errors in these checks. Interface and analytical checks also passed under sixfold CPU throttling; synchronization waits for completed rendering rather than fixed delays.
 
 - `tests/browser_features.cjs`: replay, comparisons, snap/release/downfield/manual alignment, shared physical scales, selection/clock behavior, search and empty states, region masks, lane overlay, keyboard inspection, enlargement, accessibility controls, receiver tables, pre-snap restoration, atomic state rejection, and mobile layout.
-- `tests/analytical_browser.cjs`: exact Engram/Hill values, minimum-hold qualification, defender-scope counts, signed export values, blind-mode future-coordinate invariance, ordinary-replay concealment, and invalidation of stale diagnostics.
+- `tests/analytical_browser.cjs`: exact Engram/Hill values, consecutive-frame nearest-defender markers, minimum-hold qualification, defender-scope counts, signed export values, blind-mode future-coordinate invariance, ordinary-replay concealment, and invalidation of stale diagnostics.
 - `tests/workspace_browser.cjs`: saved moments, notes on both comparison plays, playlists, filters, workspace round trips, full-precision CSV, native 2000×1500 PNG, HTML findings, encoded and decoded WebM, drawings, practice, extra packs, mobile controls, and memory fallback when storage is unavailable.
 - `tests/workspace_integrity.cjs`: known versus altered pack hashes, stripped forged outcome context, isolation of notes between datasets with identical play IDs, exact-identity import checks, restoration of original findings, negative-time drawings, and future-note exclusion from blind images/reports.
 
@@ -77,3 +77,5 @@ python tools/release.py --output submission
 ```
 
 Line endings are fixed by `.gitattributes` so checked-in source bytes and provenance hashes agree across platforms. Raw-source auditing is independently repeatable with `tools/audit_source.py` and the pinned CSVs; raw CSVs are not required for ordinary offline use.
+
+Independent verification of clean commit `42bdbdf` produced two byte-identical release archives, verified all 64 manifest file checksums, and regenerated the packaged HTML byte-for-byte after extraction. The extracted package ran the 93-test suite: 91 passed and two optional raw-CSV audits were skipped because their caches are deliberately excluded from the release. Both raw-source audits had passed separately on the full local sources. Final delivery is rebuilt from its recorded commit and accompanied by a fresh archive checksum and verification receipt.
