@@ -1,48 +1,79 @@
 # Validation record
 
-Validated on 9 October 2026 against the actual files in this repository.
+Validated on 9 October 2026. The metric and application are experimental; validation here concerns data, calculations, software behavior and reproducibility.
 
-## Dataset
+## Source data
 
-- 169 included plays from two 2021 games; 171 source plays considered.
-- Two passing plays lacking an explicit `pass_forward` event are excluded and listed in `data/provenance.json`.
-- 5,359 frames, 23 entities per frame, and 123,257 player/ball positions independently checked against the source CSVs.
-- All 788 receiver series and 25,016 separation samples independently recomputed.
-- Source CSV SHA-256 hashes checked for all six input files.
-- A fresh download from pinned source commit `85da22eeff2f1d5be106faa9dfe06a1205f2defd` reproduced `data/demo.json` byte for byte.
-- The source season is 2021; the slide description of 2023 does not match these files.
+The two included packs contain **321 plays from four 2021 games**, with four excluded source plays recorded explicitly. Independent raw-CSV auditing checked **280,347 entity observations**: 233,818 replay observations and 46,529 pre-snap observations, each retaining seven motion values. All **47,532 separation samples** were independently recomputed. Coordinate and separation comparisons matched at reported precision; the largest floating-point difference was approximately 8.53×10⁻¹⁴ in angle transformation.
 
-## Automated Python checks
+The audits verify source hashes, metadata, scouting roles, timing, normalization, penalties, quality flags, cohort denominators, and exclusion reasons. Reports:
 
-`python -m unittest discover -s tests -v`: **22 tests passed**.
+- [Original pack source audit](data/source-audit.json)
+- [Additional pack source audit](data/packs/week-1-additional/source-audit.json)
+- [Original provenance](data/provenance.json) and [additional provenance](data/packs/week-1-additional/provenance.json)
 
-Coverage includes physical coordinate rotation and angular conventions, known-distance synthetic examples, nearest-defender changes and ties, exact-threshold intervals, endpoint accounting, malformed frame rejection, actual-data metric comparisons, throw cutoffs, JSON embedding, a real HTTP server, and standalone HTML export without external assets.
+The verified external context join matches all 321 plays and maps 252 recorded targets through player IDs; targets are never guessed by name. [Join evidence](data/outcome-context.json) records source checksums and unresolved/rejected counts. Browser imports inherit this context only when the exact imported bytes match a known pack checksum; altered files remain usable after schema/geometry validation but are labelled unverified and do not inherit outcome claims.
 
-The two-game demonstration can be rebuilt from local CSVs or the pinned public source. The provenance file records processing choices and source hashes separately from the compact app dataset.
+## Metric evidence
 
-## Browser checks
+The original pack passes **21,076 valid decompositions and 119 qualifying opening events**; the additional pack passes **18,936 decompositions and 108 opening events**. Together, that is **40,012 decompositions and 227 events** under the recorded default options. All four featured numerical claim sets pass. The validation checks signed additivity, captured-value bounds, exact defender allocation conservation, and association budgets.
 
-The real exported HTML was exercised in Microsoft Edge through Playwright at a 1440-pixel desktop viewport and a 390-pixel mobile viewport. The optional reproducible script is `tests/browser_smoke.cjs`.
+- [Original metric report](data/metric-validation.json)
+- [Additional metric report](data/packs/week-1-additional/metric-validation.json)
+- [Definition and worked examples](docs/METRIC.md)
 
-Passed flows:
+The minimum-hold rule requires observed above-threshold samples through the confirmation time. A closing sample cannot certify a hold ending at that same instant. Raw intervals remain separately available. Regional arrival requires actual geometric entry; crossing an eligibility boundary while already inside is labelled separately.
 
-- Offline opening with no HTTP requests or external dependencies.
-- Correct curated default play and receiver.
-- Two-play comparison and explicit endpoint state when the shorter play ends.
-- Full half-second history required for the change map.
-- PNG export with actual field content, numerical colour legends, each play's actual timestamp, endpoint labels, and the insufficient-history state.
-- Same-play comparison with two different receivers.
-- Empty search, player-name search, and offense filtering.
-- Downfield-window toggle and separation-threshold adjustment.
-- Method-dialog opening and keyboard dismissal.
-- Frame stepping and playback stopping at the observed release.
-- Mobile single-play and comparison layouts without horizontal overflow.
-- Zero JavaScript runtime errors during the exercised flows.
+## Python and cross-runtime checks
 
-Additional executed JavaScript checks verified shared physical scale in comparisons, field-grid cell alignment, fixed-location change calculations, nearest preceding-frame selection, threshold interval accounting, and the downfield eligibility mask. Field snapshots preserve the canvas aspect ratio.
+The full local suite passed **93 tests**. It includes synthetic and real geometry, nearest-defender switches, replacement coverage, shared translation, threshold precision, eligibility and censoring, signed allocations, coordinate-jitter sensitivity, malformed source data, download/cache integrity, paired-output rollback, source audits, optional context joins, safe HTML embedding, live HTTP serving, and offline export.
 
-## Visual review
+Python and JavaScript share numeric fixtures and full-result parity checks. Both dataset validators reject 50 shared corruption cases and accept both complete real packs, including legacy and nullable track extensions.
 
-Desktop, comparison, mobile, and exported-image views were opened and visually inspected. The app preserves distance units, consistent colour scales, all-player context, and visible endpoint labels. The included preview illustrates the actual dataset and interface, rather than synthetic trajectories.
+```sh
+python -m unittest discover -s tests -v
+node tests/metrics_js.cjs
+python tools/validate_metric.py
+python tools/validate_metric.py --data data/packs/week-1-additional/demo.json --output data/packs/week-1-additional/metric-validation.json
+```
 
-These checks establish correctness of the implemented geometric calculations and demonstrated workflows. They do not validate receiver availability, catch probability, causal route credit, or a season-wide scouting ranking.
+## Real-browser behavior
+
+The exported HTML was exercised in Microsoft Edge through Playwright at desktop and 390-pixel mobile widths. The app made no runtime HTTP requests and produced no JavaScript errors in these checks.
+
+- `tests/browser_features.cjs`: replay, comparisons, snap/release/downfield/manual alignment, shared physical scales, selection/clock behavior, search and empty states, region masks, lane overlay, keyboard inspection, enlargement, accessibility controls, receiver tables, pre-snap restoration, atomic state rejection, and mobile layout.
+- `tests/analytical_browser.cjs`: exact Engram/Hill values, minimum-hold qualification, defender-scope counts, signed export values, blind-mode future-coordinate invariance, ordinary-replay concealment, and invalidation of stale diagnostics.
+- `tests/workspace_browser.cjs`: saved moments, notes on both comparison plays, playlists, filters, workspace round trips, full-precision CSV, native 2000×1500 PNG, HTML findings, encoded and decoded WebM, drawings, practice, extra packs, mobile controls, and memory fallback when storage is unavailable.
+- `tests/workspace_integrity.cjs`: known versus altered pack hashes, stripped forged outcome context, isolation of notes between datasets with identical play IDs, exact-identity import checks, restoration of original findings, negative-time drawings, and future-note exclusion from blind images/reports.
+
+Reports and screenshots are written to `submission/qa/` by the scripts. The GitHub workflow runs the Python suite on Windows and Linux, browser suites on Chromium, and the portable-workspace suite on Firefox. A configured workflow is not itself evidence of a passing run; use the attached pull request's checks for the actual remote result.
+
+## Research baseline
+
+A separate research experiment evaluates 0.5-second motion projection using four independent held-out game folds and **188,342 observed targets**. Features are current position, speed and travel direction; targets never extend beyond release or the observed endpoint. A held-out game's frames and plays never enter training.
+
+The equal-game mean endpoint error is **1.4819 yards** for stationary projection and **0.3888 yards** for constant velocity. Training-only constrained shrinkage also yields **0.3888 yards**: it does not improve the baseline. Per-game errors, corrected equal-game RMSE, split IDs and source hashes are in [the report](data/model-validation.json).
+
+No forecast is enabled in the coaching app. Four games do not establish season-wide generalization, and correlated frames are not treated as independent evidence of statistical significance.
+
+## Scope and limitations
+
+There are **no human reviewers or participant studies**, now or planned, as explicitly directed by the user. Backlog items 94–95 were withdrawn; no expert-validated coaching usefulness or performance improvement is claimed. The remaining requirements and their implementation evidence are tracked in [the acceptance matrix](docs/requirements.json).
+
+Coverage Lift is an exact decomposition of selected observed geometry. Hybrid positions are mathematical reference configurations, not a claim about a feasible alternative play. Shared motion can create opposing signed contributions with zero net gain. Separation, lane geometry, leverage and co-movement do not establish catch probability, gaze, responsibility, route intent or causal decoy credit.
+
+## Release
+
+The release builder embeds the modular assets and a verified default pack into one HTML file, includes both packs and working Python, fixes archive entry timestamps, and writes per-file SHA-256 hashes plus Git metadata. Native image export redraws the field and charts at output resolution; it does not enlarge a screen capture.
+
+```sh
+python app.py --export submission/Open-Field.html
+npm ci
+npx playwright install chromium firefox
+npm run test:browser
+node tests/workspace_browser.cjs submission --firefox
+node tools/capture_demo.cjs submission
+python tools/release.py --output submission
+```
+
+Line endings are fixed by `.gitattributes` so checked-in source bytes and provenance hashes agree across platforms. Raw-source auditing is independently repeatable with `tools/audit_source.py` and the pinned CSVs; raw CSVs are not required for ordinary offline use.

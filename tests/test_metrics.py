@@ -215,8 +215,8 @@ class BundledDataTests(unittest.TestCase):
                 for player in play["players"]:
                     self.assertEqual(len(player["track"]), size)
                     for row in player["track"]:
-                        self.assertEqual(len(row), 5)
-                        self.assertTrue(all(math.isfinite(value) for value in row))
+                        self.assertIn(len(row), (5, 6, 7))
+                        self.assertTrue(all(value is None and i >= 5 or value is not None and math.isfinite(value) for i, value in enumerate(row)))
                         self.assertGreaterEqual(row[2], 0)
                         self.assertTrue(0 <= row[3] < 360 and 0 <= row[4] < 360)
 
@@ -241,10 +241,11 @@ class BundledDataTests(unittest.TestCase):
                     expected_distances.append(math.sqrt(squared))
                     expected_ids.append(player_id)
                 with self.subTest(play=play["id"], receiver=metric["id"]):
-                    self.assertEqual(metric["separation"], [round(x, 3) for x in expected_distances])
+                    for actual, expected in zip(metric["separation"], expected_distances):
+                        self.assertAlmostEqual(actual, expected, places=12)
                     self.assertEqual(metric["nearestId"], expected_ids)
-                    self.assertEqual(metric["peakSeparation"], round(max(expected_distances), 3))
-                    self.assertEqual(metric["separationAtEnd"], round(expected_distances[-1], 3))
+                    self.assertAlmostEqual(metric["peakSeparation"], max(expected_distances), places=12)
+                    self.assertAlmostEqual(metric["separationAtEnd"], expected_distances[-1], places=12)
                     durations = [play["times"][i + 1] - play["times"][i]
                                  for i, distance in enumerate(expected_distances[:-1]) if distance >= 3]
                     self.assertAlmostEqual(metric["totalOpenSeconds"], sum(durations), places=3)

@@ -6,18 +6,56 @@ on:
   workflow_dispatch:
 
 jobs:
-  verify:
+  python:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.10', '3.12']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run numerical, data, and application checks
+        run: python -m unittest discover -s tests -v
+      - name: Check shared JavaScript metric fixtures
+        run: node tests/metrics_js.cjs
+      - name: Export the offline coaching tool
+        run: python app.py --export submission/Open-Field.html
+  browser:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Run numerical, data, and application checks
-        run: python -m unittest discover -s tests -v
-      - name: Export the offline coaching tool
-        run: python app.py --export submission/open-field.html
-      - uses: actions/upload-artifact@v4
+      - uses: actions/setup-node@v4
         with:
-          name: open-field-offline-demo
-          path: submission/open-field.html
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium firefox
+      - run: python app.py --export submission/Open-Field.html
+      - name: Exercise the coaching interface
+        run: node tests/browser_features.cjs submission
+      - name: Exercise portable workspaces and exports
+        run: node tests/workspace_browser.cjs submission
+      - name: Verify displayed metric semantics and dataset isolation
+        run: |
+          node tests/analytical_browser.cjs submission
+          node tests/workspace_integrity.cjs submission
+      - name: Verify Firefox offline operation
+        run: node tests/workspace_browser.cjs submission --firefox
+      - name: Reproduce real-play metric claims
+        run: python tools/validate_metric.py
+      - name: Build versioned submission
+        run: python tools/release.py --output submission
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: open-field-release-and-browser-evidence
+          path: submission/
