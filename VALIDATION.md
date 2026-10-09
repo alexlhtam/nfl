@@ -46,7 +46,7 @@ The exported HTML passed 43 scenarios in Microsoft Edge through Playwright at de
 - `tests/workspace_browser.cjs`: saved moments, notes on both comparison plays, playlists, filters, workspace round trips, full-precision CSV, native 2000×1500 PNG, HTML findings, encoded and decoded WebM, drawings, practice, extra packs, mobile controls, and memory fallback when storage is unavailable.
 - `tests/workspace_integrity.cjs`: known versus altered pack hashes, stripped forged outcome context, isolation of notes between datasets with identical play IDs, exact-identity import checks, restoration of original findings, negative-time drawings, and future-note exclusion from blind images/reports.
 
-Reports and screenshots are written to `submission/qa/` by the scripts. The GitHub workflow runs the Python suite on Windows and Linux, browser suites on Chromium, and the portable-workspace suite on Firefox. A configured workflow is not itself evidence of a passing run; use the attached pull request's checks for the actual remote result.
+Reports and screenshots are written to `submission/qa/` by the scripts. [GitHub run 37922792353](https://github.com/alexlhtam/nfl/actions/runs/37922792353) passed on commit `ba69d19`: Python 3.10 and 3.12 on Windows and Linux, all four Chromium suites, the portable-workspace suite on Firefox, numerical claim reproduction, and release generation. The attached pull request also shows checks for subsequent documentation-only revisions.
 
 ## Research baseline
 
@@ -78,4 +78,4 @@ python tools/release.py --output submission
 
 Line endings are fixed by `.gitattributes` so checked-in source bytes and provenance hashes agree across platforms. Raw-source auditing is independently repeatable with `tools/audit_source.py` and the pinned CSVs; raw CSVs are not required for ordinary offline use.
 
-Independent verification of clean commit `42bdbdf` produced two byte-identical release archives, verified all 64 manifest file checksums, and regenerated the packaged HTML byte-for-byte after extraction. The extracted package ran the 93-test suite: 91 passed and two optional raw-CSV audits were skipped because their caches are deliberately excluded from the release. Both raw-source audits had passed separately on the full local sources. Final delivery is rebuilt from its recorded commit and accompanied by a fresh archive checksum and verification receipt.
+Independent verification of clean commit `ba69d19` produced two byte-identical release archives, verified all 64 manifest file checksums, and regenerated the packaged HTML byte-for-byte after extraction. The extracted package ran the 93-test suite: 91 passed and two optional raw-CSV audits were skipped because their caches are deliberately excluded from the release. Both raw-source audits had passed separately on the full local sources. Final delivery is rebuilt from its recorded commit and accompanied by a fresh archive checksum and verification receipt.

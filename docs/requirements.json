@@ -877,15 +877,17 @@
     {
       "id": 88,
       "requirement": "Browser tests in GitHub CI",
-      "status": "implemented_pending_final_verification",
+      "status": "verified",
       "evidence": [
         ".github/workflows/checks.yml",
         "tests/browser_features.cjs",
         "tests/workspace_browser.cjs",
-        "tests/workspace_integrity.cjs"
+        "tests/workspace_integrity.cjs",
+        "tests/analytical_browser.cjs",
+        "https://github.com/alexlhtam/nfl/actions/runs/37922792353"
       ],
       "assertions": [
-        "Workflow configures Python, shared JavaScript checks, Chromium/Firefox verification and release artifacts. Local browser evidence exists; final workflow integration and hosted CI execution are not claimed as already passed."
+        "GitHub run 37922792353 passed on commit ba69d19: all four Windows/Linux Python jobs, four Chromium browser suites, Firefox portable-workspace checks, numerical claim verification and release generation. All 43 local Chromium scenarios also passed; feature and analytical suites passed with sixfold CPU throttling."
       ]
     },
     {
