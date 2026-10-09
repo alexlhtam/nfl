@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+cache/
+.cache/
+submission/
+.pytest_cache/
+*.log
+playwright-report/
+test-results/
+.DS_Store
+Thumbs.db

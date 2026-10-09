@@ -1,0 +1,29 @@
+[
+  {
+    "id": "2021110100_1396",
+    "receiverId": "43454",
+    "title": "Hill's window opens and stays open",
+    "caption": "Tyreek Hill is 3.38 yards downfield with only 0.89 yards of separation at 1.6s. He clears 3 yards at 2.3s and remains above that threshold through release at 4.1s, when separation is 5.78 yards. Compare with Hardman's later window closing before release.",
+    "focusTime": 2.3,
+    "compareId": "2021110100_2032",
+    "compareReceiverId": "47839"
+  },
+  {
+    "id": "2021110100_2032",
+    "receiverId": "47839",
+    "title": "Hardman's window closes before the throw",
+    "caption": "Mecole Hardman reopens a downfield window at 3.1s: 3.22 yards of separation, 20.03 yards past the line. Separation reaches 10.13 yards at 4.1s, drops below 3 yards at 6.2s, and is 1.79 yards at the 7.2s release. Julian Love is the nearest coverage defender during the closing phase.",
+    "focusTime": 6.2,
+    "compareId": "2021110100_1396",
+    "compareReceiverId": "43454"
+  },
+  {
+    "id": "2021090900_3633",
+    "receiverId": "44896",
+    "title": "Same play, different space",
+    "caption": "From 1.5s to the 2.9s release, Chris Godwin stays within 2.13 yards of Anthony Brown. Over the same downfield interval, Rob Gronkowski's separation from Keanu Neal grows from 3.05 to 6.27 yards. The paired replay shows the spacing contrast without assuming either route caused the other to open.",
+    "focusTime": 2.3,
+    "compareId": "2021090900_3633",
+    "compareReceiverId": "35481"
+  }
+]
