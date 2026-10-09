@@ -62,7 +62,7 @@ View settings control heat opacity, defender reference positions, motion arrows,
 
 Pre-snap context uses separate source frames and pauses post-snap metrics. It does not synthesize positions before the recorded sequence. Return to the snap before exporting an analytical image or clip.
 
-Self-directed practice hides the future continuation and outcome. Ordinary replay mode hides analytical overlays. These are review aids with no automatic “correct throw” grading. **No coach review, participant study or claim of measured coaching usefulness exists or is planned.**
+Self-directed practice hides the future continuation and outcome. Ordinary replay mode hides analytical overlays. These are review aids with no automatic “correct throw” grading. No participant study or coach review has been performed, and measured coaching usefulness is not claimed.
 
 ## Source and provenance
 
@@ -73,6 +73,24 @@ Optional retrospective target and outcome context comes from [nflverse](https://
 All plays face right after rotation: left-moving positions become `x=120−x`, `y=53.3−y`, with direction and orientation rotated 180 degrees. Time comes from frame IDs at 10 Hz because the source timestamp strings have whole-second precision. Replay stops at the first forward-pass release, or the recorded sack/scramble endpoint. Passing plays with no release event are excluded. Source acceleration and displacement are retained alongside position, speed, travel direction and orientation.
 
 Nullified plays, penalties, ambiguous field positions, missing scouting and heuristic trajectory flags stay identifiable. Cohort eligibility is an explicit conservative analysis filter, not a football ruling. Local source overrides are labelled unverified and do not inherit the pinned source’s verification claim.
+
+## Repository map
+
+| Purpose | Files |
+| --- | --- |
+| Run or export the coaching tool | [app.py](app.py) |
+| Interface, replay, and saved findings | [web/index.html](web/index.html) · [web/src/](web/src/) |
+| Coverage Lift calculations | [metrics.py](metrics.py) · [browser metric engine](web/src/metrics.js) · [metric specification](docs/METRIC.md) |
+| Included tracking packs and provenance | [Default pack](data/demo.json) · [additional pack](data/packs/week-1-additional/demo.json) · [source manifest](data/source-manifest.json) |
+| Rebuild and validate data | [data_pipeline.py](data_pipeline.py) · [schema.py](schema.py) · [tools/](tools/) |
+| Reproduce technical checks | [tests/](tests/) · [validation record](VALIDATION.md) |
+| Separate motion-prediction experiment | [research/](research/) · [model evaluation report](data/model-validation.json) |
+
+The research folder contains an exploratory motion-prediction evaluation on held-out games. It is separate from the observed Coverage Lift metric and is not enabled in the coaching tool.
+
+## Side project
+
+The tool's top banner opens a separate overview of **Fruit fly in the pocket**, with a download of the [original PowerPoint deck](web/side-projects/fruit-fly-in-the-pocket/fruit-fly-in-the-pocket.pptx). This side project is separate from Open Field's NFL data, metric, and validation evidence.
 
 ## Rebuild and verify
 

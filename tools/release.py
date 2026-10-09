@@ -55,6 +55,8 @@ def build(output):
         "Working Python, full metric definitions, tests, and the five-sentence README\n"
         "are included in the parent folder. Coach notes and drawings can be exported\n"
         "as a portable workspace; no account or network is needed.\n"
+        "The top Side project banner previews Fruit fly in the pocket and downloads\n"
+        "its original PowerPoint, also included under web/side-projects/.\n"
         "The statistic is experimental and geometric, not causal decoy credit.\n"
         "Validation is technical; no participant study has been performed.\n"
     ).encode()

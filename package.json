@@ -1,11 +1,11 @@
 {
   "name": "open-field-coaching",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "description": "Optional browser verification for the dependency-free Python coaching tool",
   "scripts": {
     "test:metrics": "node tests/metrics_js.cjs",
-    "test:browser": "node tests/browser_features.cjs submission && node tests/workspace_browser.cjs submission && node tests/analytical_browser.cjs submission && node tests/workspace_integrity.cjs submission"
+    "test:browser": "node tests/browser_features.cjs submission && node tests/workspace_browser.cjs submission && node tests/analytical_browser.cjs submission && node tests/workspace_integrity.cjs submission && node tests/side_project_browser.cjs submission"
   },
   "devDependencies": {"playwright": "1.62.1"}
 }

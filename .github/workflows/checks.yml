@@ -50,6 +50,8 @@ jobs:
           node tests/workspace_integrity.cjs submission
       - name: Verify Firefox offline operation
         run: node tests/workspace_browser.cjs submission --firefox
+      - name: Verify side-project preview and original presentation download
+        run: node tests/side_project_browser.cjs submission
       - name: Reproduce real-play metric claims
         run: python tools/validate_metric.py
       - name: Build versioned submission

@@ -1,0 +1,19 @@
+{
+  "title": "Fruit fly in the pocket",
+  "description": "A fruit fly’s escape circuit meets quarterback pressure.",
+  "slideCount": 14,
+  "presentation": "fruit-fly-in-the-pocket.pptx",
+  "preview": "pressure-example.png",
+  "summary": "This independent side project explores pocket collisions and approaching pressure through a simulated fruit-fly escape circuit. The original presentation contains the methods, results and limitations.",
+  "sections": [
+    {
+      "title": "Pocket collisions",
+      "description": "Tracking-based estimates of collision geometry and the room a rusher has to stop."
+    },
+    {
+      "title": "Fly-inspired warnings",
+      "description": "A model of a fruit fly’s escape circuit applied to approaching rushers in the quarterback’s view."
+    }
+  ],
+  "previewCaption": "An example from the presentation: Myles Garrett approaching Patrick Mahomes."
+}

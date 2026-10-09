@@ -26,7 +26,7 @@ The minimum-hold rule requires observed above-threshold samples through the conf
 
 ## Python and cross-runtime checks
 
-The full local suite passed **93 tests**. It includes synthetic and real geometry, nearest-defender switches, replacement coverage, shared translation, threshold precision, eligibility and censoring, signed allocations, coordinate-jitter sensitivity, malformed source data, download/cache integrity, paired-output rollback, source audits, optional context joins, safe HTML embedding, live HTTP serving, and offline export.
+The core coaching suite passed **93 tests**. It includes synthetic and real geometry, nearest-defender switches, replacement coverage, shared translation, threshold precision, eligibility and censoring, signed allocations, coordinate-jitter sensitivity, malformed source data, download/cache integrity, paired-output rollback, source audits, optional context joins, safe HTML embedding, live HTTP serving, and offline export. Eight additional side-project checks cover original asset byte identity, required files, path containment, source hashing and safe payload embedding.
 
 Python and JavaScript share numeric fixtures and full-result parity checks. Both dataset validators reject 50 shared corruption cases and accept both complete real packs, including legacy and nullable track extensions.
 
@@ -45,6 +45,7 @@ The exported HTML passed 43 scenarios in Microsoft Edge through Playwright at de
 - `tests/analytical_browser.cjs`: exact Engram/Hill values, consecutive-frame nearest-defender markers, minimum-hold qualification, defender-scope counts, signed export values, blind-mode future-coordinate invariance, ordinary-replay concealment, and invalidation of stale diagnostics.
 - `tests/workspace_browser.cjs`: saved moments, notes on both comparison plays, playlists, filters, workspace round trips, full-precision CSV, native 2000×1500 PNG, HTML findings, encoded and decoded WebM, drawings, practice, extra packs, mobile controls, and memory fallback when storage is unavailable.
 - `tests/workspace_integrity.cjs`: known versus altered pack hashes, stripped forged outcome context, isolation of notes between datasets with identical play IDs, exact-identity import checks, restoration of original findings, negative-time drawings, and future-note exclusion from blind images/reports.
+- `tests/side_project_browser.cjs`: 14 checks across offline and Python HTTP delivery, including banner placement, preview, keyboard isolation, focus restoration, unchanged replay state, mobile layout, dataset switching and byte-identical original PowerPoint downloads.
 
 Reports and screenshots are written to `submission/qa/` by the scripts. [GitHub run 37922792353](https://github.com/alexlhtam/nfl/actions/runs/37922792353) passed on commit `ba69d19`: Python 3.10 and 3.12 on Windows and Linux, all four Chromium suites, the portable-workspace suite on Firefox, numerical claim reproduction, and release generation. The attached pull request also shows checks for subsequent documentation-only revisions.
 
@@ -58,9 +59,11 @@ No forecast is enabled in the coaching app. Four games do not establish season-w
 
 ## Scope and limitations
 
-There are **no human reviewers or participant studies**, now or planned, as explicitly directed by the user. Backlog items 94–95 were withdrawn; no expert-validated coaching usefulness or performance improvement is claimed. The remaining requirements and their implementation evidence are tracked in [the acceptance matrix](docs/requirements.json).
+No expert review or participant study has been performed, and no measured coaching usefulness or performance improvement is claimed. The technical requirements and their implementation evidence are tracked in [the acceptance matrix](docs/requirements.json).
 
 Coverage Lift is an exact decomposition of selected observed geometry. Hybrid positions are mathematical reference configurations, not a claim about a feasible alternative play. Shared motion can create opposing signed contributions with zero net gain. Separation, lane geometry, leverage and co-movement do not establish catch probability, gaze, responsibility, route intent or causal decoy credit.
+
+The clearly labelled **Fruit fly in the pocket** side project has its own presentation and research claims. Open Field preserves that supplied presentation unchanged and checks its delivery through the browser; the Coverage Lift validation above does not validate the side project's findings.
 
 ## Release
 

@@ -3,3 +3,4 @@
 *.jpg -text
 *.zip -text
 *.webm -text
+*.pptx -text

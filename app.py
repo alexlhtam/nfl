@@ -9,10 +9,12 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import base64
 import hashlib
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 from pathlib import Path
+import re
 import sys
 import threading
 from urllib.parse import urlsplit
@@ -25,9 +27,9 @@ from schema import validate_dataset
 ROOT = Path(__file__).resolve().parent
 DEFAULT_DATA = ROOT / "data" / "demo.json"
 TEMPLATE = ROOT / "web" / "index.html"
-APP_VERSION = "2.0.0"
+APP_VERSION = "2.1.0"
 ASSETS = {"__STYLE__": "styles.css", "__METRICS_JS__": "metrics.js", "__SCHEMA_JS__": "schema.js",
-          "__APP_JS__": "app.js", "__WORKSPACE_JS__": "workspace.js"}
+          "__APP_JS__": "app.js", "__WORKSPACE_JS__": "workspace.js", "__SIDE_PROJECT_JS__": "side-project.js"}
 
 
 def encode_json_for_html(data: dict) -> str:
@@ -83,11 +85,61 @@ def load_data(path: Path) -> dict:
     return data
 
 
+def side_project_bundle() -> tuple[dict, dict[str, bytes]]:
+    """Read the local presentation bundle; return browser payload and hash inputs."""
+    folder = (ROOT / "web" / "side-projects" / "fruit-fly-in-the-pocket").resolve()
+
+    def read_required(path: Path) -> bytes:
+        try:
+            content = path.read_bytes()
+        except FileNotFoundError as error:
+            raise ValueError(f"Required side-project asset is missing: {path.name}") from error
+        if not content:
+            raise ValueError(f"Required side-project asset is empty: {path.name}")
+        return content
+
+    metadata_bytes = read_required(folder / "project.json")
+    metadata = json.loads(metadata_bytes.decode("utf-8"))
+    if not isinstance(metadata, dict):
+        raise ValueError("Side-project project.json must contain an object.")
+    for key in ("title", "description", "summary"):
+        if not isinstance(metadata.get(key), str) or not metadata[key].strip():
+            raise ValueError(f"Side-project {key} must be a nonempty string.")
+    if type(metadata.get("slideCount")) is not int or metadata["slideCount"] < 1:
+        raise ValueError("Side-project slideCount must be a positive integer.")
+    if not isinstance(metadata.get("sections"), list) or any(
+        not isinstance(section, dict) or any(not isinstance(section.get(key), str) for key in ("title", "description"))
+        for section in metadata["sections"]
+    ):
+        raise ValueError("Side-project sections must contain title and description strings.")
+    if "previewCaption" in metadata and not isinstance(metadata["previewCaption"], str):
+        raise ValueError("Side-project previewCaption must be a string.")
+    assets = {"project.json": metadata_bytes}
+    for key, extension in (("presentation", ".pptx"), ("preview", ".png")):
+        name = metadata.get(key)
+        if (not isinstance(name, str) or not name or any(character in name for character in ("/", "\\", ":"))
+                or Path(name).suffix.lower() != extension):
+            raise ValueError(f"Side-project {key} must name a local {extension} file within its asset folder.")
+        path = (folder / name).resolve()
+        if not path.is_relative_to(folder):
+            raise ValueError(f"Side-project {key} resolves outside its asset folder.")
+        assets[name] = read_required(path)
+    presentation, preview = assets[metadata["presentation"]], assets[metadata["preview"]]
+    payload = {**metadata,
+               "presentationBase64": base64.b64encode(presentation).decode("ascii"),
+               "presentationSha256": hashlib.sha256(presentation).hexdigest(),
+               "previewDataUrl": "data:image/png;base64," + base64.b64encode(preview).decode("ascii")}
+    return payload, assets
+
+
 def render_html(data: dict, template_text: str | None = None) -> str:
     template = TEMPLATE.read_text(encoding="utf-8") if template_text is None else template_text
+    side_project = None
     if template.count("__ROUTE_DATA__") != 1:
         raise ValueError("The app template must contain exactly one data placeholder.")
     if template_text is None:
+        if template.count("__SIDE_PROJECT_DATA__") != 1:
+            raise ValueError("The app template must contain exactly one side-project data placeholder.")
         digest = hashlib.sha256()
         for token, filename in ASSETS.items():
             if token not in template:
@@ -98,10 +150,17 @@ def render_html(data: dict, template_text: str | None = None) -> str:
             if filename.endswith(".js") and "</script" in content.lower():
                 raise ValueError(f"Unsafe script terminator in source asset: {filename}")
             template = template.replace(token, content)
+        side_project, side_assets = side_project_bundle()
+        for filename, content in sorted(side_assets.items()):
+            digest.update(("side-project/" + filename).encode() + b"\0" + content)
         data = {**data, "meta": {**data.get("meta", {}), "application": {
             "version": APP_VERSION, "sourceHash": digest.hexdigest(),
             "metricVersion": "2.0.0", "validation": "technical; no participant study"}}}
-    return template.replace("__ROUTE_DATA__", encode_json_for_html(data))
+    replacements = {"__ROUTE_DATA__": encode_json_for_html(data)}
+    if side_project is not None:
+        replacements["__SIDE_PROJECT_DATA__"] = encode_json_for_html(side_project)
+    # One substitution pass preserves literal placeholder text inside payloads.
+    return re.sub("|".join(map(re.escape, replacements)), lambda match: replacements[match.group()], template)
 
 
 def atomic_write_text(path: Path, content: str) -> None:
